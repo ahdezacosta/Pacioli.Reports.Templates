@@ -1,0 +1,21 @@
+{
+  "journalDate": "2026-01-15",
+  "number": "JE-000123",
+  "reference": "Manual entry",
+  "lines": [
+    {
+      "accountCode": "1101",
+      "accountName": "Cash",
+      "description": "Deposit",
+      "debit": 100.00,
+      "credit": 0.00
+    },
+    {
+      "accountCode": "4101",
+      "accountName": "Sales",
+      "description": "Sale",
+      "debit": 0.00,
+      "credit": 100.00
+    }
+  ]
+}
