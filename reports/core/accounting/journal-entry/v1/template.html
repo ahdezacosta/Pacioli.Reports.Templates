@@ -1,5 +1,38 @@
+<!doctype html>
 <html>
-  <body>
-    Journal Entry Report v1
-  </body>
+<head>
+    <meta charset="utf-8" />
+    <title>Journal Entry</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1>Journal Entry</h1>
+
+    <div class="meta">
+        <div><strong>Journal Date:</strong> {{journalDate}}</div>
+        <div><strong>Number:</strong> {{number}}</div>
+        <div><strong>Reference:</strong> {{reference}}</div>
+    </div>
+
+    <table class="lines">
+        <thead>
+            <tr>
+                <th>Account</th>
+                <th>Description</th>
+                <th class="num">Debit</th>
+                <th class="num">Credit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each lines}}
+            <tr>
+                <td>{{accountCode}} — {{accountName}}</td>
+                <td>{{description}}</td>
+                <td class="num">{{debit}}</td>
+                <td class="num">{{credit}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
 </html>
