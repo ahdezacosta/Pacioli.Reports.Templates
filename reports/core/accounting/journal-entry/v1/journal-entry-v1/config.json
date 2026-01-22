@@ -1,0 +1,20 @@
+{
+    "name": "journal-entry-v1",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "1aIVzc9G4"
+    },
+    "shortid": "kYiLmEiiNm",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1768533146459
+    },
+    "modificationDate": {
+        "$$date": 1769054648902
+    },
+    "_id": "F9zVBQ53cFhJJNMT",
+    "$entitySet": "templates"
+}

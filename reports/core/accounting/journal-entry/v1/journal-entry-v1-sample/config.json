@@ -1,0 +1,12 @@
+{
+    "name": "journal-entry-v1-sample",
+    "shortid": "1aIVzc9G4",
+    "creationDate": {
+        "$$date": 1768533060338
+    },
+    "modificationDate": {
+        "$$date": 1769052945947
+    },
+    "_id": "47xnQU3ikZDjOAqV",
+    "$entitySet": "data"
+}
