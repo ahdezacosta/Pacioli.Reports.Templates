@@ -1,0 +1,12 @@
+{
+    "name": "general-ledger-v1-sample-data",
+    "shortid": "NnLcfKElA",
+    "creationDate": {
+        "$$date": 1769126437369
+    },
+    "modificationDate": {
+        "$$date": 1769141168716
+    },
+    "_id": "Id6LDbrxsIy2nzed",
+    "$entitySet": "data"
+}

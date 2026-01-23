@@ -1,0 +1,312 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{Model.context.resources.[titles.generalLedger]}}</title>
+
+    <style>
+    {{asset "/core/accounting/general-ledger/v1/styles.css"}}
+    </style>
+</head>
+
+<body>
+
+    <!-- Company + Period header -->
+    <div class="topbar">
+        <div class="company-block">
+            <div class="logo">
+                {{#if Model.context.company.HasLogo}}
+                <img class="logo-img" src="{{Model.context.company.LogoUrl}}" alt="Logo" />
+                {{else}}
+                <div class="logo-fallback">{{Model.context.company.LogoInitials}}</div>
+                {{/if}}
+            </div>
+
+            <div class="company-details">
+                <div class="company-name">
+                    {{#if Model.context.company.TradeName}}
+                    {{Model.context.company.TradeName}}
+                    {{else}}
+                    {{Model.context.company.Name}}
+                    {{/if}}
+                </div>
+
+                {{#if Model.context.company.Identification}}
+                <div class="company-line">
+                    <span class="muted">{{Model.context.resources.[labels.identification]}}:</span>
+                    <span class="mono">{{Model.context.company.Identification}}</span>
+                </div>
+                {{/if}}
+
+                {{#if Model.context.company.Email}}
+                <div class="company-line mono">{{Model.context.company.Email}}</div>
+                {{/if}}
+
+                {{#if Model.context.company.Phone}}
+                <div class="company-line mono">{{Model.context.company.Phone}}</div>
+                {{/if}}
+
+                {{#if Model.context.company.Website}}
+                <div class="company-line mono">{{Model.context.company.Website}}</div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="period-block">
+            {{#if Model.context.period}}
+            <div class="period-title">{{Model.context.resources.[labels.period]}}</div>
+            <div class="period-key mono">{{Model.context.period.PeriodKey}}</div>
+
+            <div class="period-range muted">
+                {{Model.context.resources.[labels.from]}} <span class="mono">{{Model.context.period.StartDate}}</span>
+                •
+                {{Model.context.resources.[labels.to]}} <span class="mono">{{Model.context.period.EndDate}}</span>
+            </div>
+            {{else}}
+            <div class="period-title">{{Model.context.resources.[labels.dateRange]}}</div>
+            <div class="period-key mono">{{Model.model.filters.fromDateText}} • {{Model.model.filters.toDateText}}</div>
+
+            <div class="period-range muted">
+                {{#if Model.model.filters.onlyPosted}}
+                {{Model.context.resources.[labels.onlyPosted]}}
+                {{else}}
+                {{Model.context.resources.[labels.includeDrafts]}}
+                {{/if}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Report header -->
+    <div class="header">
+        <div>
+            <h1 class="title">{{Model.context.resources.[titles.generalLedger]}}</h1>
+
+            <div class="subtitle">
+                <span class="muted">{{Model.context.resources.[labels.from]}}</span>
+                <span class="mono">{{Model.model.filters.fromDateText}}</span>
+                <span class="muted">•</span>
+                <span class="muted">{{Model.context.resources.[labels.to]}}</span>
+                <span class="mono">{{Model.model.filters.toDateText}}</span>
+
+                {{#if Model.model.filters.periodId}}
+                <span class="muted">•</span>
+                <span class="muted">{{Model.context.resources.[labels.periodId]}}</span>
+                <span class="mono">{{Model.model.filters.periodId}}</span>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="header-chips">
+            {{#if Model.model.filters.onlyPosted}}
+            <span class="chip ok">{{Model.context.resources.[labels.onlyPosted]}}</span>
+            {{else}}
+            <span class="chip">
+                {{Model.context.resources.[labels.onlyPosted]}}: {{Model.context.resources.[labels.no]}}
+            </span>
+            {{/if}}
+
+            {{#if Model.model.filters.includeVoided}}
+            <span class="chip bad">{{Model.context.resources.[labels.includeVoided]}}</span>
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Filters card -->
+    <div class="card">
+        <div class="row">
+            <div class="col">
+                <div class="kv">
+                    <div class="k">{{Model.context.resources.[labels.from]}}</div>
+                    <div class="v mono">{{Model.model.filters.fromDateText}}</div>
+
+                    <div class="k">{{Model.context.resources.[labels.to]}}</div>
+                    <div class="v mono">{{Model.model.filters.toDateText}}</div>
+
+                    <div class="k">{{Model.context.resources.[labels.onlyPosted]}}</div>
+                    <div class="v">
+                        {{#if Model.model.filters.onlyPosted}}
+                        {{Model.context.resources.[labels.yes]}}
+                        {{else}}
+                        {{Model.context.resources.[labels.no]}}
+                        {{/if}}
+                    </div>
+
+                    <div class="k">{{Model.context.resources.[labels.includeVoided]}}</div>
+                    <div class="v">
+                        {{#if Model.model.filters.includeVoided}}
+                        {{Model.context.resources.[labels.yes]}}
+                        {{else}}
+                        {{Model.context.resources.[labels.no]}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="kv">
+                    <div class="k">{{Model.context.resources.[labels.includeOpeningBalance]}}</div>
+                    <div class="v">
+                        {{#if Model.model.filters.includeOpeningBalance}}
+                        {{Model.context.resources.[labels.yes]}}
+                        {{else}}
+                        {{Model.context.resources.[labels.no]}}
+                        {{/if}}
+                    </div>
+
+                    <div class="k">{{Model.context.resources.[labels.includeRunningBalance]}}</div>
+                    <div class="v">
+                        {{#if Model.model.filters.includeRunningBalance}}
+                        {{Model.context.resources.[labels.yes]}}
+                        {{else}}
+                        {{Model.context.resources.[labels.no]}}
+                        {{/if}}
+                    </div>
+
+                    <div class="k">{{Model.context.resources.[labels.accountFilter]}}</div>
+                    <div class="v">
+                        {{#if Model.model.filters.accountIds}}
+                        <span class="mono">{{Model.model.filters.accountIds}}</span>
+                        {{else}}
+                        {{Model.context.resources.[labels.notAvailable]}}
+                        {{/if}}
+                    </div>
+
+                    <div class="k">{{Model.context.resources.[labels.period]}}</div>
+                    <div class="v">
+                        {{#if Model.context.period}}
+                        <span class="mono">{{Model.context.period.PeriodKey}}</span>
+                        {{else}}
+                        {{Model.context.resources.[labels.notAvailable]}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accounts -->
+    {{#each Model.model.accounts}}
+
+    {{#unless @first}}
+    <div class="account-gap"></div>
+    {{/unless}}
+
+    <!-- Account card -->
+    <div class="card account-card">
+        <div class="row">
+            <div class="col">
+                <div class="account-card-title">
+                    <div class="k">{{../Model.context.resources.[labels.account]}}</div>
+
+                    <div class="v">
+                        <div class="mono account-code">
+                            {{#if code}}{{code}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}
+                        </div>
+                        <div class="account-name">
+                            {{#if name}}{{name}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="kv kv-money">
+                    <div class="total-box">
+                        <div class="label">{{../Model.context.resources.[labels.openingBalance]}}</div>
+                        <div class="value right">{{#if openingBalanceText}}{{openingBalanceText}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movements table -->
+    <table class="movements-table">
+        <thead>
+            <tr>
+                <th class="w-date">{{../Model.context.resources.[columns.date]}}</th>
+                <th class="w-jn">{{../Model.context.resources.[columns.journalEntryNumber]}}</th>
+                <th class="w-jn">{{../Model.context.resources.[columns.journalNumber]}}</th>
+                <th class="w-desc">{{../Model.context.resources.[columns.description]}}</th>
+                <th class="w-cc">{{../Model.context.resources.[columns.costcenter]}}</th>
+                <th class="w-cc">{{../Model.context.resources.[columns.subcostcenter]}}</th>
+                <th class="w-money right">{{../Model.context.resources.[columns.debit]}}</th>
+                <th class="w-money right">{{../Model.context.resources.[columns.credit]}}</th>
+                <th class="w-money right">{{../Model.context.resources.[columns.runningBalance]}}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#if movements.length}}
+            {{#each movements}}
+            <tr>
+                <td class="mono nowrap">{{dateText}}</td>
+                <td class="mono nowrap">{{#if journalEntryNumber}}{{journalEntryNumber}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}</td>
+                <td class="mono nowrap">{{#if journalNumber}}{{journalNumber}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}</td>
+                <td>{{#if description}}{{description}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}</td>
+                <td class="mono">{{#if costCenterCode}}{{costCenterCode}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}</td>
+                <td class="mono">{{#if subCostCenterCode}}{{subCostCenterCode}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}</td>
+                <td class="right nowrap">{{debitText}}</td>
+                <td class="right nowrap">{{creditText}}</td>
+                <td class="right nowrap">
+                    {{#if runningBalanceText}}{{runningBalanceText}}{{else}}{{../Model.context.resources.[labels.notAvailable]}}{{/if}}
+                </td>
+            </tr>
+            {{/each}}
+            {{else}}
+            <tr>
+                <td colspan="9" class="muted">{{../Model.context.resources.[labels.noMovements]}}</td>
+            </tr>
+            {{/if}}
+        </tbody>
+        {{#if movements.length}}
+        <tfoot>
+            <tr class="account-totals-row">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="totals-label right">{{../Model.context.resources.[labels.totals]}}</td>
+
+                <td class="money right nowrap"><strong>{{totals.debitText}}</strong></td>
+                <td class="money right nowrap"><strong>{{totals.creditText}}</strong></td>
+                <td class="money right nowrap"><strong>{{closingBalanceText}}</strong></td>
+            </tr>
+        </tfoot>
+        {{/if}}
+
+
+
+    </table>
+
+    {{/each}}
+
+    <!-- Grand totals -->
+    <div class="totals">
+        <div class="total-box">
+            <div class="label">{{Model.context.resources.[labels.totalDebit]}}</div>
+            <div class="value right">{{Model.model.totals.debitText}}</div>
+        </div>
+
+        <div class="total-box">
+            <div class="label">{{Model.context.resources.[labels.totalCredit]}}</div>
+            <div class="value right">{{Model.model.totals.creditText}}</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer footer-two-cols">
+        <div>
+            {{Model.context.resources.[labels.report]}}:
+            <span class="mono">{{ReportKey}} • {{Model.context.resources.[labels.version]}}: {{ReportVersion}}</span>
+        </div>
+        <div>
+            {{Model.context.resources.[labels.generatedAt]}}:
+            <span class="mono">{{Model.context.metadata.GeneratedAtUtc}}</span>
+        </div>
+    </div>
+
+</body>
+</html>

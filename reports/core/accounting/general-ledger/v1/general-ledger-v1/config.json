@@ -1,0 +1,20 @@
+{
+    "name": "general-ledger-v1",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "NnLcfKElA"
+    },
+    "shortid": "5gXLLhWjv3",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1769126437417
+    },
+    "modificationDate": {
+        "$$date": 1769141313793
+    },
+    "_id": "etXiqZM6AEyP8VhI",
+    "$entitySet": "templates"
+}
