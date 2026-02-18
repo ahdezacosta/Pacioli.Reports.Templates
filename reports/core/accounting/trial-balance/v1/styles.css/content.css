@@ -1,0 +1,360 @@
+@page {
+    margin: 18mm 16mm;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    color: #111827;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+}
+
+.col {
+    flex: 1;
+    min-width: 0;
+}
+
+.muted {
+    color: #6b7280;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* =========================
+   Company + Period header
+   ========================= */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.company-block {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    min-width: 0;
+    flex: 1;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 12px;
+    color: #111827;
+    background: #f9fafb;
+}
+
+.company-details {
+    min-width: 0;
+}
+
+.company-name {
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    word-break: break-word;
+}
+
+.company-line {
+    margin-top: 2px;
+    font-size: 11px;
+    color: #6b7280;
+    word-break: break-word;
+}
+
+.period-block {
+    flex: 0 0 240px;
+    text-align: right;
+}
+
+.period-title {
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #6b7280;
+}
+
+.period-key {
+    margin-top: 2px;
+    font-weight: 800;
+    font-size: 12px;
+    color: #111827;
+}
+
+.period-range {
+    margin-top: 2px;
+    font-size: 11px;
+}
+
+/* =========================
+   Report header
+   ========================= */
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* =========================
+   Card
+   ========================= */
+.card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    background: #fff;
+}
+
+.kv {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    column-gap: 10px;
+    row-gap: 6px;
+    align-items: baseline;
+}
+
+.k {
+    color: #6b7280;
+}
+
+.v {
+    color: #111827;
+    min-width: 0;
+    word-break: break-word;
+}
+
+/* =========================
+   Table
+   ========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead th {
+    text-align: left;
+    font-weight: 700;
+    background: #f9fafb;
+    color: #111827;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+tbody td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) td {
+    background: #fcfcfd;
+}
+
+.right {
+    text-align: right;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Column widths (trial-balance specific) */
+.w-code {
+    width: 10%;
+}
+
+.w-desc {
+    width: 30%;
+}
+
+.w-money {
+    width: 10%;
+}
+
+/* =========================
+   Trial Balance hierarchy indentation + typography
+   ========================= */
+.tb-account-cell {
+    min-width: 0;
+    word-break: break-word;
+    /* Make it look like GL mono values (asiento/diario) */
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+/* Indent per level */
+.tb-lvl-1 {
+    padding-left: 0px;
+}
+
+.tb-lvl-2 {
+    padding-left: 10px;
+}
+
+.tb-lvl-3 {
+    padding-left: 20px;
+}
+
+.tb-lvl-4 {
+    padding-left: 30px;
+}
+
+.tb-lvl-5 {
+    padding-left: 40px;
+}
+
+.tb-lvl-6 {
+    padding-left: 50px;
+}
+
+.tb-lvl-7 {
+    padding-left: 60px;
+}
+
+.tb-lvl-8 {
+    padding-left: 70px;
+}
+
+.tb-lvl-9 {
+    padding-left: 80px;
+}
+
+.tb-lvl-10 {
+    padding-left: 90px;
+}
+
+/* ✅ IMPORTANT: match GL perceived density
+   Because account name is 11px, amounts at 12px look bigger by contrast.
+   Force table body + footer to 11px for consistent visual weight. */
+.movements-table tbody td,
+.movements-table tfoot td {
+    font-size: 11px;
+}
+
+/* =========================
+   Footer
+   ========================= */
+.footer {
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 10px;
+    color: #6b7280;
+}
+
+.footer-two-cols {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* =========================
+   Totals row (same as GL)
+   ========================= */
+.movements-table tfoot td {
+    border-top: 2px solid #ddd;
+    padding-top: 8px;
+}
+
+.account-totals-row strong {
+    font-weight: 700;
+}
+
+.movements-table th.w-money,
+.movements-table td.w-money,
+.movements-table td.money,
+.movements-table td.right,
+.movements-table th.right {
+    text-align: right;
+}
+
+.movements-table td.right,
+.movements-table th.right,
+.movements-table td.money {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.movements-table td,
+.movements-table th,
+.movements-table tfoot td {
+    padding: 6px 8px;
+}
+
+.movements-table tfoot .account-totals-row td {
+    background: inherit;
+}
+
+.movements-table tfoot .totals-label {
+    font-weight: 600;
+}
+
+.movements-table tfoot .account-totals-row td {
+    background: var(--header-bg, #f3f4f6);
+    border-top: 1px solid rgba(0,0,0,.08);
+}

@@ -1,0 +1,20 @@
+{
+    "name": "trial-balance-v1",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "3dKJwnBUg"
+    },
+    "shortid": "su_tAivb0e",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1771375439006
+    },
+    "modificationDate": {
+        "$$date": 1771386445203
+    },
+    "_id": "4nX1RgimciC6CJDJ",
+    "$entitySet": "templates"
+}
