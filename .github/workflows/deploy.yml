@@ -2,7 +2,7 @@ name: Deploy — jsreport Templates
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 env:
