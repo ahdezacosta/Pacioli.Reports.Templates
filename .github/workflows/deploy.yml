@@ -20,7 +20,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ── 2. Sincronizar reports\ → C:\services\jsreport\data\ ───────────────
+      # ── 2. Detener jsreport antes de sincronizar ────────────────────────────
+      #    Necesario para que robocopy /MIR pueda eliminar archivos que jsreport
+      #    mantiene abiertos (p.ej. samples). Sin esto robocopy devuelve código 8+.
+      - name: Stop jsreport service
+        shell: powershell
+        run: |
+          Stop-Service -Name "${{ env.JSREPORT_SVC }}" -Force -ErrorAction SilentlyContinue
+          Write-Host "Servicio '${{ env.JSREPORT_SVC }}' detenido."
+
+      # ── 3. Sincronizar reports\ → C:\services\jsreport\data\ ───────────────
       #    /MIR  = mirror (copia nuevos/modificados, elimina los que ya no existen)
       #    /NJH  = sin encabezado  /NJS = sin resumen  /NDL = sin lista de dirs
       #    /R:3  = 3 reintentos    /W:5 = esperar 5 s entre reintentos
@@ -40,11 +49,12 @@ jobs:
           }
           Write-Host "Sincronización completada."
 
-      # ── 3. Reiniciar servicio jsreport ──────────────────────────────────────
-      - name: Restart jsreport service
+      # ── 4. Iniciar servicio jsreport ─────────────────────────────────────────
+      - name: Start jsreport service
         shell: powershell
         run: |
-          Restart-Service -Name "${{ env.JSREPORT_SVC }}" -Force
+          Start-Service -Name "${{ env.JSREPORT_SVC }}"
+          Start-Sleep -Seconds 5
           $svc = Get-Service -Name "${{ env.JSREPORT_SVC }}"
           Write-Host "Servicio '${{ env.JSREPORT_SVC }}' estado: $($svc.Status)"
           if ($svc.Status -ne "Running") {

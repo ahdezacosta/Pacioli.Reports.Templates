@@ -9,3 +9,6 @@ Thumbs.db
 
 # (Optional) If you ever add node tooling
 node_modules/
+
+# jsreport runtime artifacts — never commit execution profile logs
+reports/storage/
