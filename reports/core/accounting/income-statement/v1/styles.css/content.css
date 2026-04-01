@@ -1,0 +1,163 @@
+@page {
+    margin: 18mm 16mm;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    color: #111827;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.muted { color: #6b7280; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.right { text-align: right; }
+.nowrap { white-space: nowrap; }
+
+/* ===== Topbar ===== */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.company-block { display: flex; gap: 10px; align-items: flex-start; min-width: 0; flex: 1; }
+
+.logo {
+    width: 38px; height: 38px; flex: 0 0 38px;
+    border: 1px solid #e5e7eb; border-radius: 10px;
+    background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.logo-img { width: 100%; height: 100%; object-fit: contain; }
+.logo-fallback {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 12px; color: #111827; background: #f9fafb;
+}
+.company-details { min-width: 0; }
+.company-name { font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em; word-break: break-word; }
+.company-line { margin-top: 2px; font-size: 11px; color: #6b7280; word-break: break-word; }
+
+.period-block { flex: 0 0 210px; text-align: right; }
+.period-title { font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.02em; color: #6b7280; }
+.period-key { margin-top: 2px; font-weight: 800; font-size: 12px; color: #111827; }
+.period-range { margin-top: 2px; font-size: 11px; }
+
+/* ===== Report title ===== */
+.header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 16px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #e5e7eb;
+}
+.title { font-size: 16px; font-weight: 700; margin: 0; }
+.subtitle { margin-top: 2px; font-size: 12px; color: #6b7280; }
+
+/* ===== Section block ===== */
+.section {
+    margin-bottom: 16px;
+}
+
+.section-header {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #374151;
+    background: #f3f4f6;
+    padding: 6px 10px;
+    border: 1px solid #e5e7eb;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+}
+
+/* ===== Table ===== */
+.movements-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e5e7eb;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.movements-table thead th {
+    text-align: left;
+    font-weight: 700;
+    background: #f9fafb;
+    color: #111827;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.movements-table tbody td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: top;
+    font-size: 11px;
+}
+
+.movements-table tbody tr:nth-child(even) td { background: #fcfcfd; }
+
+.movements-table tfoot td {
+    border-top: 2px solid #d1d5db;
+    padding: 6px 10px;
+    font-size: 11px;
+    background: #f9fafb;
+}
+
+.w-code { width: 10%; }
+.w-desc { width: 38%; }
+.w-money { width: 14%; }
+
+.tb-account-cell { min-width: 0; word-break: break-word; font-size: 11px; font-weight: 400; line-height: 1.25; }
+.tb-lvl-1 { padding-left: 0; }
+.tb-lvl-2 { padding-left: 10px; }
+.tb-lvl-3 { padding-left: 20px; }
+.tb-lvl-4 { padding-left: 30px; }
+.tb-lvl-5 { padding-left: 40px; }
+
+/* ===== Summary block ===== */
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.summary-table td {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.summary-divider {
+    border-top: 1px solid #d1d5db;
+}
+
+.summary-total {
+    font-weight: 700;
+    border-top: 2px solid #374151;
+}
+
+.summary-net-income { background: #ecfdf5; }
+.summary-net-loss   { background: #fef2f2; }
+
+/* ===== Footer ===== */
+.footer {
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 10px;
+    color: #6b7280;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}

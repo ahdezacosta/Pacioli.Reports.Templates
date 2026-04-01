@@ -1,0 +1,12 @@
+{
+    "name": "v1",
+    "creationDate": {
+        "$$date": 1774000000000
+    },
+    "modificationDate": {
+        "$$date": 1774000000000
+    },
+    "shortid": "bsV1Folder",
+    "_id": "BalanceSheetV1Folder",
+    "$entitySet": "folders"
+}

@@ -1,0 +1,20 @@
+{
+    "name": "income-statement-v1",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "isV1SampleData"
+    },
+    "shortid": "isV1Template",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1774000000000
+    },
+    "modificationDate": {
+        "$$date": 1774000000000
+    },
+    "_id": "IncomeStatementV1Template",
+    "$entitySet": "templates"
+}

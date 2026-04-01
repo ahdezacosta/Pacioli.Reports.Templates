@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{Model.context.resources.[titles.incomeStatement]}}</title>
+
+    <style>
+    {{asset "/core/accounting/income-statement/v1/styles.css"}}
+    </style>
+</head>
+
+<body>
+
+    <!-- Company + Period header -->
+    <div class="topbar">
+        <div class="company-block">
+            <div class="logo">
+                {{#if Model.context.company.HasLogo}}
+                <img class="logo-img" src="{{Model.context.company.LogoUrl}}" alt="Logo" />
+                {{else}}
+                <div class="logo-fallback">{{Model.context.company.LogoInitials}}</div>
+                {{/if}}
+            </div>
+
+            <div class="company-details">
+                <div class="company-name">
+                    {{#if Model.context.company.TradeName}}
+                    {{Model.context.company.TradeName}}
+                    {{else}}
+                    {{Model.context.company.Name}}
+                    {{/if}}
+                </div>
+
+                {{#if Model.context.company.Identification}}
+                <div class="company-line">
+                    <span class="muted">{{Model.context.resources.[labels.identification]}}:</span>
+                    <span class="mono">{{Model.context.company.Identification}}</span>
+                </div>
+                {{/if}}
+
+                {{#if Model.context.company.Email}}
+                <div class="company-line mono">{{Model.context.company.Email}}</div>
+                {{/if}}
+
+                {{#if Model.context.company.Phone}}
+                <div class="company-line mono">{{Model.context.company.Phone}}</div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="period-block">
+            {{#if Model.context.period}}
+                <div class="period-title">{{Model.context.resources.[labels.period]}}</div>
+                <div class="period-key mono">{{Model.context.period.PeriodKey}}</div>
+                <div class="period-range muted">
+                    {{Model.context.resources.[labels.from]}} <span class="mono">{{Model.model.filters.fromDate}}</span>
+                    •
+                    {{Model.context.resources.[labels.to]}} <span class="mono">{{Model.model.filters.toDate}}</span>
+                </div>
+            {{else}}
+                <div class="period-title">{{Model.context.resources.[labels.period]}}</div>
+                <div class="period-key mono">
+                    {{Model.model.filters.fromDate}} — {{Model.model.filters.toDate}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Report title -->
+    <div class="header">
+        <div>
+            <h1 class="title">{{Model.context.resources.[titles.incomeStatement]}}</h1>
+            <div class="subtitle muted">
+                {{Model.context.resources.[labels.from]}} <span class="mono">{{Model.model.filters.fromDate}}</span>
+                {{Model.context.resources.[labels.to]}} <span class="mono">{{Model.model.filters.toDate}}</span>
+            </div>
+        </div>
+    </div>
+
+    {{#if Model.model.sections.length}}
+
+        {{#each Model.model.sections}}
+        <!-- Section: {{accountType}} -->
+        <div class="section">
+            <div class="section-header">{{label}}</div>
+            <table class="movements-table">
+                <thead>
+                    <tr>
+                        <th class="w-code">{{../Model.context.resources.[columns.code]}}</th>
+                        <th class="w-desc">{{../Model.context.resources.[columns.account]}}</th>
+                        <th class="w-money right">{{../Model.context.resources.[columns.debit]}}</th>
+                        <th class="w-money right">{{../Model.context.resources.[columns.credit]}}</th>
+                        <th class="w-money right">{{../Model.context.resources.[columns.net]}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each rows}}
+                    <tr>
+                        <td class="mono nowrap">{{code}}</td>
+                        <td class="tb-account-cell tb-lvl-{{level}} mono">
+                            {{#if name}}{{name}}{{else}}{{../../Model.context.resources.[labels.notAvailable]}}{{/if}}
+                        </td>
+                        <td class="right nowrap">{{periodDebitText}}</td>
+                        <td class="right nowrap">{{periodCreditText}}</td>
+                        <td class="right nowrap">{{netAmountText}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td class="right" style="font-weight:600;">{{../Model.context.resources.[labels.totals]}}</td>
+                        <td></td>
+                        <td></td>
+                        <td class="right nowrap"><strong>{{subtotalText}}</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        {{/each}}
+
+        <!-- Summary -->
+        <table class="summary-table">
+            <tr class="summary-divider">
+                <td style="width:60%;"></td>
+                <td style="width:40%; text-align:right; font-weight:600;">{{Model.context.resources.[labels.totalRevenue]}}</td>
+                <td style="width:20%; text-align:right;" class="mono">{{Model.model.totalRevenueText}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align:right; font-weight:600;">{{Model.context.resources.[labels.totalExpenses]}}</td>
+                <td style="text-align:right;" class="mono">{{Model.model.totalExpensesText}}</td>
+            </tr>
+            <tr class="summary-total {{#if Model.model.isProfit}}summary-net-income{{else}}summary-net-loss{{/if}}">
+                <td></td>
+                <td style="text-align:right; font-weight:700; font-size:13px;">
+                    {{#if Model.model.isProfit}}
+                    {{Model.context.resources.[labels.netIncome]}}
+                    {{else}}
+                    {{Model.context.resources.[labels.netLoss]}}
+                    {{/if}}
+                </td>
+                <td style="text-align:right; font-weight:700; font-size:13px;" class="mono">{{Model.model.netIncomeText}}</td>
+            </tr>
+        </table>
+
+    {{else}}
+        <p class="muted" style="margin-top:24px; text-align:center;">
+            {{Model.context.resources.[labels.notAvailable]}}
+        </p>
+    {{/if}}
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>
+            {{Model.context.resources.[labels.report]}}:
+            <span class="mono">{{ReportKey}} • {{Model.context.resources.[labels.version]}}: {{ReportVersion}}</span>
+        </div>
+        <div>
+            {{Model.context.resources.[labels.generatedAt]}}:
+            <span class="mono">{{Model.context.metadata.GeneratedAtUtc}}</span>
+        </div>
+    </div>
+
+</body>
+</html>
