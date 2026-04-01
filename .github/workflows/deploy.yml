@@ -2,7 +2,7 @@ name: Deploy — jsreport Templates
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 env:
@@ -48,6 +48,7 @@ jobs:
             exit $LASTEXITCODE
           }
           Write-Host "Sincronización completada."
+          exit 0   # robocopy 0-7 = éxito; sin esto GitHub Actions ve el código de robocopy (ej. 1) como fallo
 
       # ── 4. Iniciar servicio jsreport ─────────────────────────────────────────
       - name: Start jsreport service
