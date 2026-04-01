@@ -1,0 +1,12 @@
+{
+    "name": "income-statement",
+    "creationDate": {
+        "$$date": 1774000000000
+    },
+    "modificationDate": {
+        "$$date": 1774000000000
+    },
+    "shortid": "isFolder1",
+    "_id": "IncomeStatementFolder1",
+    "$entitySet": "folders"
+}

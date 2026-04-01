@@ -1,0 +1,53 @@
+name: Deploy — jsreport Templates
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+env:
+  REPORTS_SRC:  reports
+  JSREPORT_DIR: C:\services\jsreport\data
+  JSREPORT_SVC: jsreport
+
+jobs:
+  deploy:
+    name: Sync · Restart
+    runs-on: [self-hosted, Windows]
+
+    steps:
+      # ── 1. Código fuente ────────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Sincronizar reports\ → C:\services\jsreport\data\ ───────────────
+      #    /MIR  = mirror (copia nuevos/modificados, elimina los que ya no existen)
+      #    /NJH  = sin encabezado  /NJS = sin resumen  /NDL = sin lista de dirs
+      #    /R:3  = 3 reintentos    /W:5 = esperar 5 s entre reintentos
+      - name: Sync reports to jsreport data folder
+        shell: powershell
+        run: |
+          $src  = "${{ github.workspace }}\${{ env.REPORTS_SRC }}"
+          $dest = "${{ env.JSREPORT_DIR }}"
+
+          Write-Host "Sincronizando '$src' -> '$dest' ..."
+          robocopy $src $dest /MIR /NJH /NJS /NDL /R:3 /W:5
+
+          # robocopy devuelve códigos 0-7 como éxito; 8+ son errores reales
+          if ($LASTEXITCODE -ge 8) {
+            Write-Error "robocopy falló con código $LASTEXITCODE"
+            exit $LASTEXITCODE
+          }
+          Write-Host "Sincronización completada."
+
+      # ── 3. Reiniciar servicio jsreport ──────────────────────────────────────
+      - name: Restart jsreport service
+        shell: powershell
+        run: |
+          Restart-Service -Name "${{ env.JSREPORT_SVC }}" -Force
+          $svc = Get-Service -Name "${{ env.JSREPORT_SVC }}"
+          Write-Host "Servicio '${{ env.JSREPORT_SVC }}' estado: $($svc.Status)"
+          if ($svc.Status -ne "Running") {
+            Write-Error "El servicio no arrancó correctamente."
+            exit 1
+          }

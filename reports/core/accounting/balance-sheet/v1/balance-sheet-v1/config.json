@@ -1,0 +1,20 @@
+{
+    "name": "balance-sheet-v1",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "bsV1SampleData"
+    },
+    "shortid": "bsV1Template",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1774000000000
+    },
+    "modificationDate": {
+        "$$date": 1774000000000
+    },
+    "_id": "BalanceSheetV1Template",
+    "$entitySet": "templates"
+}
