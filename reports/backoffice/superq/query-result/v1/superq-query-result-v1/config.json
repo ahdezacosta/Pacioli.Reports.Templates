@@ -1,0 +1,20 @@
+{
+    "name": "superq-query-result-v1",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "sqR-data-1"
+    },
+    "shortid": "sqR-tmpl-1",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1771900000000
+    },
+    "modificationDate": {
+        "$$date": 1771900000000
+    },
+    "_id": "superq-query-result-v1-template",
+    "$entitySet": "templates"
+}

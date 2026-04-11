@@ -1,0 +1,31 @@
+{
+  "Model": {
+    "context": {
+      "company": {
+        "Name": "EMPRESA DEMO S.A.",
+        "TradeName": "Empresa Demo",
+        "HasLogo": false,
+        "LogoUrl": null,
+        "LogoInitials": "ED",
+        "Identification": "1791234567001"
+      },
+      "metadata": {
+        "GeneratedAtUtc": "10/04/2026 14:32"
+      }
+    },
+    "model": {
+      "Question": "¿Cuáles son los 5 clientes con mayor saldo pendiente?",
+      "GeneratedSql": "SELECT TOP 5\n    c.Name AS Cliente,\n    SUM(i.Balance) AS SaldoPendiente\nFROM Customers c\nINNER JOIN Invoices i ON c.Id = i.CustomerId\nWHERE i.Status = 'Pending'\nGROUP BY c.Name\nORDER BY SaldoPendiente DESC",
+      "Columns": ["Cliente", "SaldoPendiente"],
+      "Rows": [
+        ["Distribuidora Norte S.A.", "12500.00"],
+        ["Comercial del Sur Cía. Ltda.", "9875.50"],
+        ["Importaciones Central", "7340.20"],
+        ["Almacenes Populares", "5100.00"],
+        ["Ferretería Industrial", "3250.75"]
+      ],
+      "RowCount": 5,
+      "Truncated": false
+    }
+  }
+}

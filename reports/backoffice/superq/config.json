@@ -1,0 +1,12 @@
+{
+    "name": "superq",
+    "creationDate": {
+        "$$date": 1771900000000
+    },
+    "modificationDate": {
+        "$$date": 1771900000000
+    },
+    "shortid": "sqModDir",
+    "_id": "backoffice-superq-folder",
+    "$entitySet": "folders"
+}

@@ -1,0 +1,12 @@
+{
+    "name": "backoffice",
+    "creationDate": {
+        "$$date": 1771900000000
+    },
+    "modificationDate": {
+        "$$date": 1771900000000
+    },
+    "shortid": "bkOfcDir",
+    "_id": "backoffice-folder",
+    "$entitySet": "folders"
+}

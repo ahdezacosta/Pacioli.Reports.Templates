@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Pacioli IA — Consulta</title>
+
+    <style>
+    {{asset "/backoffice/superq/query-result/v1/styles.css"}}
+    {{#if Model.context.metadata.IsLandscape}}
+    @page { size: A4 landscape; margin: 14mm 16mm; }
+    {{/if}}
+    </style>
+</head>
+
+<body{{#if Model.context.metadata.IsLandscape}} class="landscape"{{/if}}>
+
+    <!-- Company + report identity header -->
+    <div class="topbar">
+        <div class="company-block">
+            <div class="logo">
+                {{#if Model.context.company.HasLogo}}
+                <img class="logo-img" src="{{Model.context.company.LogoUrl}}" alt="Logo" />
+                {{else}}
+                <div class="logo-fallback">{{Model.context.company.LogoInitials}}</div>
+                {{/if}}
+            </div>
+
+            <div class="company-details">
+                <div class="company-name">
+                    {{#if Model.context.company.TradeName}}
+                    {{Model.context.company.TradeName}}
+                    {{else}}
+                    {{Model.context.company.Name}}
+                    {{/if}}
+                </div>
+                {{#if Model.context.company.Identification}}
+                <div class="company-line mono">{{Model.context.company.Identification}}</div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="brand-block">
+            <div class="brand-label">Pacioli IA</div>
+            <div class="brand-sub">Consulta en lenguaje natural</div>
+            <div class="brand-date muted mono">{{Model.context.metadata.GeneratedAtUtc}}</div>
+        </div>
+    </div>
+
+    <!-- Report header -->
+    <div class="header">
+        <h1 class="title">Resultado de consulta</h1>
+        <div class="subtitle muted">Generado por Pacioli IA · {{Model.context.metadata.GeneratedAtUtc}}</div>
+    </div>
+
+    <!-- Question card -->
+    <div class="card">
+        <div class="question-label">Pregunta</div>
+        <div class="question-text">{{Model.model.Question}}</div>
+    </div>
+
+    <!-- Results count + truncation warning -->
+    <div class="results-meta">
+        <span class="results-count-badge">
+            {{Model.model.RowCount}} registros
+        </span>
+        {{#if Model.model.Truncated}}
+        <span class="truncated-badge">
+            Resultado parcial — existen más registros en la base de datos
+        </span>
+        {{/if}}
+    </div>
+
+    <!-- Chart (only when AI determined data is chartable) -->
+    {{#if Model.model.HasChart}}
+    <div class="chart-section">
+        <div class="chart-label">Visualización</div>
+        <img class="chart-img" src="{{Model.model.ChartDataUri}}" alt="Gráfico" />
+    </div>
+    {{/if}}
+
+    <!-- Dynamic results table -->
+    {{#if Model.model.Columns.length}}
+    <table class="results-table">
+        <thead>
+            <tr>
+                {{#each Model.model.Columns}}
+                <th{{#if (lookup ../Model.model.NumericColumns @index)}} class="num"{{/if}}>{{this}}</th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#if Model.model.Rows.length}}
+                {{#each Model.model.Rows}}
+                <tr>
+                    {{#each this}}
+                    <td{{#if (lookup ../../Model.model.NumericColumns @index)}} class="num"{{/if}}>{{#if this}}{{this}}{{else}}<span class="muted">—</span>{{/if}}</td>
+                    {{/each}}
+                </tr>
+                {{/each}}
+            {{else}}
+                <tr>
+                    <td colspan="100" class="empty-cell muted">Sin resultados</td>
+                </tr>
+            {{/if}}
+        </tbody>
+    </table>
+    {{/if}}
+
+
+</body>
+</html>
