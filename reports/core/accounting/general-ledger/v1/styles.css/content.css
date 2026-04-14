@@ -1,436 +1,199 @@
+/* ── Page ──────────────────────────────────────────────────────── */
 @page {
-    margin: 18mm 16mm;
+    size: A4 portrait;
+    margin: 10mm 12mm;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-    color: #111827;
-    font-size: 12px;
-    line-height: 1.35;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 8.5px;
+    color: #111;
+    line-height: 1.3;
 }
 
-.row {
-    display: flex;
-    gap: 16px;
-}
-
-.col {
-    flex: 1;
-    min-width: 0;
-}
-
-.muted {
-    color: #6b7280;
-}
-
-.mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-/* =========================
-   Company + Period header
-   ========================= */
+/* ── Topbar ────────────────────────────────────────────────────── */
 .topbar {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 18px;
-    padding-bottom: 12px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid #e5e7eb;
+    align-items: baseline;
+    padding-bottom: 5px;
+    margin-bottom: 6px;
+    border-bottom: 1.5px solid #333;
 }
 
-.company-block {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    min-width: 0;
-    flex: 1;
+.topbar-left {
+    font-size: 8.5px;
 }
 
-.logo {
-    width: 38px;
-    height: 38px;
-    flex: 0 0 38px;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.logo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.logo-fallback {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 12px;
-    color: #111827;
-    background: #f9fafb;
-}
-
-.company-details {
-    min-width: 0;
-}
-
-.company-name {
-    font-weight: 800;
-    font-size: 12px;
+.co-name {
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    word-break: break-word;
 }
 
-.company-line {
-    margin-top: 2px;
-    font-size: 11px;
-    color: #6b7280;
-    word-break: break-word;
+.co-id {
+    color: #555;
+    font-size: 8px;
 }
 
-.period-block {
-    flex: 0 0 240px;
+.topbar-right {
+    font-size: 8px;
+    color: #444;
     text-align: right;
 }
 
-.period-title {
+.rpt-name {
     font-weight: 700;
-    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
-    color: #6b7280;
+    letter-spacing: 0.03em;
+    color: #111;
 }
 
-.period-key {
-    margin-top: 2px;
-    font-weight: 800;
-    font-size: 12px;
-    color: #111827;
+.rpt-title {
+    color: #333;
 }
 
-.period-range {
-    margin-top: 2px;
-    font-size: 11px;
+.rpt-date {
+    color: #666;
 }
 
-/* =========================
-   Report header
-   ========================= */
-.header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e5e7eb;
+.topbar-sep {
+    margin: 0 4px;
+    color: #bbb;
 }
 
-.title {
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0;
-}
-
-.subtitle {
-    margin-top: 2px;
-    font-size: 12px;
-    color: #6b7280;
-}
-
-.chip {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-size: 11px;
-    border: 1px solid #e5e7eb;
-    color: #111827;
-    background: #f9fafb;
-    white-space: nowrap;
-}
-
-    .chip.ok {
-        border-color: #bbf7d0;
-        background: #f0fdf4;
-        color: #166534;
-    }
-
-    .chip.bad {
-        border-color: #fecaca;
-        background: #fef2f2;
-        color: #991b1b;
-    }
-
-/* =========================
-   Card
-   ========================= */
-.card {
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 10px 12px;
-    margin-bottom: 12px;
-    background: #fff;
-}
-
-.kv {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    column-gap: 10px;
-    row-gap: 6px;
-    align-items: baseline;
-}
-
-.k {
-    color: #6b7280;
-}
-
-.v {
-    color: #111827;
-    min-width: 0;
-    word-break: break-word;
-}
-
-/* =========================
-   Table
-   ========================= */
-table {
+/* ── Table ─────────────────────────────────────────────────────── */
+.rpt-table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    overflow: hidden;
+    table-layout: fixed;
+    font-size: 8.5px;
 }
 
-thead th {
+/* Column widths — 7 cols — portrait A4 (~186mm usable)
+   1: No. Asiento  2: Fecha  3: C.Costo  4: Concepto  5: Débito  6: Crédito  7: Saldo */
+.rpt-table th:nth-child(1), .rpt-table td:nth-child(1) { width: 21%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rpt-table th:nth-child(2), .rpt-table td:nth-child(2) { width: 10%; white-space: nowrap; }
+.rpt-table th:nth-child(3), .rpt-table td:nth-child(3) { width:  9%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rpt-table th:nth-child(4), .rpt-table td:nth-child(4) { width: 26%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rpt-table th:nth-child(5), .rpt-table td:nth-child(5) { width: 11%; }
+.rpt-table th:nth-child(6), .rpt-table td:nth-child(6) { width: 11%; }
+.rpt-table th:nth-child(7), .rpt-table td:nth-child(7) { width: 12%; }
+
+/* Header row */
+.rpt-table thead th {
+    padding: 3px 4px;
     text-align: left;
+    font-size: 8px;
     font-weight: 700;
-    background: #f9fafb;
-    color: #111827;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 8px 10px;
-    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
+    color: #111;
+    border-top: 1.5px solid #333;
+    border-bottom: 1px solid #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-tbody td {
-    padding: 8px 10px;
-    border-bottom: 1px solid #f3f4f6;
-    vertical-align: top;
-}
+/* Repeat header on each printed page */
+thead { display: table-header-group; }
+tr    { page-break-inside: avoid; }
 
-tbody tr:nth-child(even) td {
-    background: #fcfcfd;
-}
-
-.right {
+/* Right-align last 3 columns (Débito, Crédito, Saldo) */
+.rpt-table th:nth-last-child(-n+3),
+.rpt-table td:nth-last-child(-n+3) {
     text-align: right;
-}
-
-.nowrap {
+    font-variant-numeric: tabular-nums;
     white-space: nowrap;
 }
 
-.w-id {
-    width: 26%;
+/* ── Data rows ─────────────────────────────────────────────────── */
+.row-data td {
+    padding: 2px 4px;
+    border-bottom: 0.5px solid #e0e0e0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.w-desc {
-    width: 34%;
+/* ── Group header (account title) ─────────────────────────────── */
+.row-group-header td {
+    padding: 4px 4px 2px;
+    font-weight: 700;
+    font-size: 8.5px;
+    border-top: 1.5px solid #555;
+    border-bottom: 0.5px solid #bbb;
+    background: #f2f2f2;        /* very light gray — minimal ink */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.01em;
 }
 
-.w-cc {
-    width: 20%;
+/* First group needs no top gap */
+.row-group-header:first-child td {
+    border-top: none;
 }
 
-.w-money {
-    width: 10%;
+/* ── Section header ────────────────────────────────────────────── */
+.row-section-header td {
+    padding: 3px 4px;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 8px;
+    color: #333;
+    border-top: 0.5px solid #ccc;
+    border-bottom: 0.5px solid #ccc;
 }
 
-/* =========================
-   Totals
-   ========================= */
-.totals {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
+/* ── Subtotal row ──────────────────────────────────────────────── */
+.row-subtotal td {
+    padding: 2px 4px;
+    font-weight: 700;
+    font-size: 8px;
+    border-top: 0.5px solid #888;
+    color: #222;
 }
 
-.total-box {
-    min-width: 180px;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 10px 12px;
-    background: #fff;
+.row-subtotal .lbl-cell {
+    font-style: italic;
+    color: #444;
 }
 
-    .total-box .label {
-        font-size: 11px;
-        color: #6b7280;
-        margin-bottom: 4px;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-    }
+/* ── Total row ─────────────────────────────────────────────────── */
+.row-total td {
+    padding: 3px 4px;
+    font-weight: 700;
+    font-size: 8.5px;
+    border-top: 1.5px solid #333;
+    border-bottom: 1.5px solid #333;
+    color: #000;
+}
 
-    .total-box .value {
-        font-size: 14px;
-        font-weight: 700;
-        color: #111827;
-    }
+.row-total .lbl-cell {
+    font-style: italic;
+    color: #444;
+}
 
-/* =========================
-   Footer
-   ========================= */
+/* ── Spacer ────────────────────────────────────────────────────── */
+.row-spacer td {
+    height: 4px;
+    padding: 0;
+    border: none;
+}
+
+/* ── Footer ────────────────────────────────────────────────────── */
 .footer {
-    margin-top: 16px;
-    padding-top: 10px;
-    border-top: 1px solid #e5e7eb;
-    font-size: 10px;
-    color: #6b7280;
+    margin-top: 8px;
+    padding-top: 4px;
+    border-top: 0.5px solid #bbb;
+    font-size: 7.5px;
+    color: #777;
 }
 
-.footer-two-cols {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-/* =========================
-   Spacing between accounts
-   ========================= */
-.account-block {
-    margin-top: 0;
-    margin-bottom: 18px; /* separation between this account and the next */
-    page-break-inside: avoid;
-}
-
-.account-block .movements-table {
-    margin-top: 8px; /* space between card and table */
-}
-
-/* Extra: if a table is long, allow it to split, but keep header visible */
-.account-block table {
-    page-break-inside: auto;
-}
-
-.account-block thead {
-    display: table-header-group;
-}
-
-.account-block tr {
-    page-break-inside: avoid;
-    page-break-after: auto;
-}
-
-/* Strong separation between accounts (visible in PDF) */
-.account-block + .account-block {
-    padding-top: 36px;              /* more air */
-    margin-top: 0;
-    border-top: 2px solid #e5e7eb;  /* clearer divider */
-}
-
-/* Keep the next card from touching the divider */
-.account-block + .account-block .account-card {
-    margin-top: 0;
-}
-
-/* Move the NEXT account card down (real visible gap vs previous table) */
-.account-block + .account-block .account-card {
-    margin-top: 28px !important; /* increase if needed: 36px / 44px */
-}
-
-/* Ensure nothing cancels it */
-.account-card {
-    margin-bottom: 10px;
-}
-
-/* Guaranteed visual gap between previous table and next account card */
-.account-gap {
-    height: 22px;       /* strong, visible in PDF */
-    display: block;
-}
-/* Account totals row at the bottom of each movements table */
-.movements-table tfoot td {
-  border-top: 2px solid #ddd;
-  padding-top: 8px;
-}
-.account-totals-row strong {
-  font-weight: 700;
-}
-/* Ensure any amount-like cell is right-aligned */
-.movements-table th.w-money,
-.movements-table td.w-money,
-.movements-table td.money,
-.movements-table td.right,
-.movements-table th.right {
-  text-align: right;
-}
-
-/* Defensive: align the last 3 columns (debit/credit/balance) always right */
-.movements-table th:nth-last-child(-n+3),
-.movements-table td:nth-last-child(-n+3) {
-  text-align: right;
-}
-
-/* Account totals row style */
-.movements-table tfoot td {
-  border-top: 2px solid #ddd;
-}
-
-/* Use the same background as the table header */
-.movements-table tfoot .account-totals-row td {
-  background: inherit; /* fallback if thead uses inherited bg */
-} 
-
-/* Optional: make totals label look like header text */
-.movements-table tfoot .totals-label {
-  font-weight: 600;
-}
-
-.movements-table td.right,
-.movements-table th.right,
-.movements-table td.money {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-.movements-table td,
-.movements-table th,
-.movements-table tfoot td {
-  padding: 6px 8px;
-}
-
-.account-card .kv-money {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.account-card .kv-money .total-box {
-  margin-left: auto;
-  width: fit-content;
-}
-
-/* Footer (totals) dentro de cada tabla de movimientos */
-.movements-table tfoot .account-totals-row td{
-  background: var(--header-bg, #f3f4f6); /* usa la misma variable si ya existe */
-}
-
-/* Opcional: que se vea “pegado” como header (si tu header tiene borde) */
-.movements-table tfoot .account-totals-row td{
-  border-top: 1px solid rgba(0,0,0,.08);
+.footer-sep {
+    margin: 0 4px;
+    color: #ccc;
 }
