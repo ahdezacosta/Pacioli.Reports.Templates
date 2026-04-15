@@ -24,8 +24,6 @@
             <span class="rpt-name">{{Model.context.metadata.ReportName}}</span>
             <span class="topbar-sep">|</span>
             <span class="rpt-title">{{Model.report.Title}}</span>
-            <span class="topbar-sep">|</span>
-            <span class="rpt-date">{{Model.context.metadata.GeneratedAt}}</span>
         </div>
     </div>
 
@@ -47,7 +45,8 @@
 
             {{#if IsGroupHeader}}
             <tr class="row-group-header">
-                <td colspan="100">{{Label}}</td>
+                <td colspan="4" class="account-name-cell">{{Label}}</td>
+                <td colspan="3" class="opening-balance-cell">{{Cells.[0]}}</td>
             </tr>
             {{else}}
 

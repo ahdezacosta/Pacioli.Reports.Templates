@@ -137,6 +137,18 @@ tr    { page-break-inside: avoid; }
     border-top: none;
 }
 
+/* Account name cell — left side of the account header row */
+.rpt-table .row-group-header .account-name-cell {
+    text-align: left;
+}
+
+/* Opening balance cell — right side of the account header row */
+.row-group-header .opening-balance-cell {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
 /* ── Section header ────────────────────────────────────────────── */
 .row-section-header td {
     padding: 3px 4px;
@@ -157,9 +169,10 @@ tr    { page-break-inside: avoid; }
     color: #222;
 }
 
-.row-subtotal .lbl-cell {
+.rpt-table .row-subtotal .lbl-cell {
     font-style: italic;
     color: #444;
+    text-align: left;
 }
 
 /* ── Total row ─────────────────────────────────────────────────── */
@@ -172,9 +185,10 @@ tr    { page-break-inside: avoid; }
     color: #000;
 }
 
-.row-total .lbl-cell {
+.rpt-table .row-total .lbl-cell {
     font-style: italic;
     color: #444;
+    text-align: left;
 }
 
 /* ── Spacer ────────────────────────────────────────────────────── */
