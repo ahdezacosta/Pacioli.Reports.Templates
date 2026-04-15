@@ -11,19 +11,33 @@
 
     <!-- ── Header ─────────────────────────────────────────────── -->
     <div class="topbar">
-        <div class="topbar-left">
-            <span class="co-name">
-                {{#if Model.context.company.TradeName}}{{Model.context.company.TradeName}}{{else}}{{Model.context.company.Name}}{{/if}}
-            </span>
-            {{#if Model.context.company.Identification}}
-            <span class="topbar-sep">|</span>
-            <span class="co-id">{{Model.context.company.Identification}}</span>
-            {{/if}}
+        <div class="company-block">
+            <div class="logo">
+                {{#if Model.context.company.HasLogo}}
+                <img class="logo-img" src="{{Model.context.company.LogoUrl}}" alt="Logo" />
+                {{else}}
+                <div class="logo-fallback">{{Model.context.company.LogoInitials}}</div>
+                {{/if}}
+            </div>
+
+            <div class="company-details">
+                <div class="company-name">
+                    {{#if Model.context.company.TradeName}}
+                    {{Model.context.company.TradeName}}
+                    {{else}}
+                    {{Model.context.company.Name}}
+                    {{/if}}
+                </div>
+
+                {{#if Model.context.company.Identification}}
+                <div class="company-line mono">{{Model.context.company.Identification}}</div>
+                {{/if}}
+            </div>
         </div>
-        <div class="topbar-right">
-            <span class="rpt-name">{{Model.context.metadata.ReportName}}</span>
-            <span class="topbar-sep">|</span>
-            <span class="rpt-title">{{Model.report.Title}}</span>
+
+        <div class="report-meta-block">
+            <div class="report-meta-name">{{Model.context.metadata.ReportName}}</div>
+            <div class="report-meta-title mono">{{Model.report.Title}}</div>
         </div>
     </div>
 
