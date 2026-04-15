@@ -19,14 +19,14 @@ body {
 /* ── Topbar ────────────────────────────────────────────────────── */
 .topbar {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     padding-bottom: 5px;
     margin-bottom: 6px;
     border-bottom: 1.5px solid #333;
 }
 
 .company-block {
+    flex: 1;
     display: flex;
     gap: 8px;
     align-items: flex-start;
@@ -75,8 +75,17 @@ body {
     color: #555;
 }
 
-.report-meta-block {
-    text-align: right;
+.report-title-block {
+    flex: 2;
+    text-align: center;
+}
+
+.report-meta-title {
+    white-space: nowrap;
+}
+
+.topbar-spacer {
+    flex: 1;
 }
 
 .report-meta-name {
