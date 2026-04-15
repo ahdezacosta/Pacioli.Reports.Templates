@@ -1,374 +1,2403 @@
 {
-    "ReportKey": "core.accounting.trial-balance",
-    "ReportVersion": "v1",
-    "TemplateName": "trial-balance-v1",
-    "Context": {
-        "Company": {
-            "Name": "SANCHEZ FUNDORA YOLAISY",
-            "IdentificationType": 0,
-            "Identification": "1757056377001",
-            "TradeName": "SANCHEZ FUNDORA YOLAISY",
-            "LogoUrl": "https://paciolibucket.s3.us-east-2.amazonaws.com/orgs/c64b69f6759a43a1bc0ae31961876751/companies/logos/e9767ff4-7186-447f-a397-208ea6bbfdb8_ninosfelices.png?X-Amz-Expires=600&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVYV5Z6T6UQ4ARWOC%2F20251214%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20251214T042142Z&X-Amz-SignedHeaders=host&X-Amz-Signature=9bef4cc508bdfbedcab35016f2a1346ef8b73fc4c141ec491169a4e6ee842e03",
-            "Phone": "+593 98 371 2491",
-            "Email": "ahdezacosta@gmail.com",
-            "Website": null
-        },
-        "Period": {
-            "PeriodKey": "2026-01",
-            "StartDate": "2026-01-01",
-            "EndDate": "2026-01-31",
-            "Status": 2
-        },
-        "Format": {
-            "CultureName": "es-EC",
-            "BaseCurrency": 0,
-            "CurrencyCode": "USD",
-            "CurrencySymbol": "$",
-            "AmountPrecision": 2,
-            "AmountRoundingMode": 1,
-            "DateShortPattern": "d/M/yyyy",
-            "DateLongPattern": "dddd, d 'de' MMMM 'de' yyyy",
-            "DateTimeShortPattern": "d/M/yyyy HH:mm"
-        },
-        "Resources": {
-            "labels.company": "Compañía",
-            "labels.identification": "Identificación",
-            "labels.period": "Período",
-            "labels.from": "Desde",
-            "labels.to": "Hasta",
-            "labels.generatedAt": "Generado el",
-            "labels.generatedBy": "Generado por",
-            "labels.page": "Página",
-            "labels.of": "de",
-            "statuses.period.draft": "Borrador",
-            "statuses.period.open": "Abierto",
-            "statuses.period.closing": "Cerrado",
-            "statuses.period.closed": "Cerrado",
-            "statuses.period.archived": "Archivado",
-            "titles.trialBalance": "Balance de comprobación",
-            "labels.periodId": "Id del período",
-            "labels.level": "Nivel",
-            "labels.yes": "Si",
-            "labels.no": "No",
-            "labels.notAvailable": "No disponible",
-            "labels.report": "Reporte",
-            "labels.version": "Versión",
-            "labels.totals": "Totales",
-            "columns.code": "Código",
-            "columns.account": "Cuenta",
-            "columns.previousBalance": "Saldo anterior",
-            "columns.balance": "Saldo",
-            "columns.periodDebit": "Débitos",
-            "columns.periodCredit": "Créditos",
-            "columns.openingDebit": "Debe inicial",
-            "columns.openingCredit": "Haber inicial",
-            "columns.closingDebit": "Debe final",
-            "columns.closingCredit": "Haber final"
-        },
-        "Metadata": {
-            "ReportKey": "core.accounting.trial-balance",
-            "ReportVersion": "v1",
-            "GeneratedAtUtc": "2026-02-18T03:49:36.306223Z",
-            "CompanyId": "ea273d63-424f-4fe3-9de7-5ca5b6daeeec",
-            "AccountingPeriodId": "92c26178-8ceb-40d6-91f9-46ae5fff2f1e",
-            "UserId": "54ffffe3-451a-445d-9009-4bc1cc3f99a7"
-        }
+  "Model": {
+    "context": {
+      "company": {
+        "Name": "APPLICORP S.A.",
+        "TradeName": "APPLICORP S.A.",
+        "HasLogo": false,
+        "LogoUrl": null,
+        "LogoInitials": "AS",
+        "Identification": "1792318955001"
+      },
+      "metadata": {
+        "GeneratedAt": "14/04/2026 19:55",
+        "ReportName": "Balance de Comprobación"
+      }
     },
-    "Model": {
-        "context": {
-            "company": {
-                "Name": "SANCHEZ FUNDORA YOLAISY",
-                "IdentificationType": 0,
-                "Identification": "1757056377001",
-                "TradeName": "SANCHEZ FUNDORA YOLAISY",
-                "LogoUrl": "https://paciolibucket.s3.us-east-2.amazonaws.com/orgs/c64b69f6759a43a1bc0ae31961876751/companies/logos/e9767ff4-7186-447f-a397-208ea6bbfdb8_ninosfelices.png?X-Amz-Expires=600&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVYV5Z6T6UQ4ARWOC%2F20260218%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20260218T034936Z&X-Amz-SignedHeaders=host&X-Amz-Signature=6f2f812542adbb1422843e8904933bdf53bb6dc93f06429b01ec4ac080501ffc",
-                "Phone": "+593 98 371 2491",
-                "Email": "ahdezacosta@gmail.com",
-                "Website": null,
-                "HasLogo": true,
-                "LogoInitials": "SF"
-            },
-            "period": {
-                "PeriodKey": "2026-01",
-                "StartDate": "2026-01-01",
-                "EndDate": "2026-01-31",
-                "Status": 2
-            },
-            "format": {
-                "CultureName": "es-EC",
-                "BaseCurrency": 0,
-                "CurrencyCode": "USD",
-                "CurrencySymbol": "$",
-                "AmountPrecision": 2,
-                "AmountRoundingMode": 1,
-                "DateShortPattern": "d/M/yyyy",
-                "DateLongPattern": "dddd, d 'de' MMMM 'de' yyyy",
-                "DateTimeShortPattern": "d/M/yyyy HH:mm"
-            },
-            "resources": {
-                "labels.company": "Compañía",
-                "labels.identification": "Identificación",
-                "labels.period": "Período",
-                "labels.from": "Desde",
-                "labels.to": "Hasta",
-                "labels.generatedAt": "Generado el",
-                "labels.generatedBy": "Generado por",
-                "labels.page": "Página",
-                "labels.of": "de",
-                "statuses.period.draft": "Borrador",
-                "statuses.period.open": "Abierto",
-                "statuses.period.closing": "Cerrado",
-                "statuses.period.closed": "Cerrado",
-                "statuses.period.archived": "Archivado",
-                "titles.trialBalance": "Balance de comprobación",
-                "labels.periodId": "Id del período",
-                "labels.level": "Nivel",
-                "labels.yes": "Si",
-                "labels.no": "No",
-                "labels.notAvailable": "No disponible",
-                "labels.report": "Reporte",
-                "labels.version": "Versión",
-                "labels.totals": "Totales",
-                "columns.code": "Código",
-                "columns.account": "Cuenta",
-                "columns.previousBalance": "Saldo anterior",
-                "columns.balance": "Saldo",
-                "columns.periodDebit": "Débitos",
-                "columns.periodCredit": "Créditos",
-                "columns.openingDebit": "Debe inicial",
-                "columns.openingCredit": "Haber inicial",
-                "columns.closingDebit": "Debe final",
-                "columns.closingCredit": "Haber final"
-            },
-            "metadata": {
-                "ReportKey": "core.accounting.trial-balance",
-                "ReportVersion": "v1",
-                "GeneratedAtUtc": "2026-02-18T03:49:36.306223Z",
-                "CompanyId": "ea273d63-424f-4fe3-9de7-5ca5b6daeeec",
-                "AccountingPeriodId": "92c26178-8ceb-40d6-91f9-46ae5fff2f1e",
-                "UserId": "54ffffe3-451a-445d-9009-4bc1cc3f99a7"
-            }
+    "report": {
+      "Title": "Balance de Comprobación — 01/01/2025 — 10/01/2025",
+      "TotalDataRows": 127,
+      "ColumnCount": 5,
+      "Columns": [
+        "Código",
+        "Nombre",
+        "Débito",
+        "Crédito",
+        "Saldo"
+      ],
+      "Rows": [
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": true,
+          "IsHeader": true,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "ACTIVO",
+          "Cells": []
         },
-        "model": {
-            "filters": {
-                "periodId": "92c26178-8ceb-40d6-91f9-46ae5fff2f1e",
-                "onlyPosted": true,
-                "includeVoided": false,
-                "level": 5
-            },
-            "rows": [
-                {
-                    "id": "28b98e67-93ae-41f9-9456-f7a7fabd21bd",
-                    "parentId": null,
-                    "level": 1,
-                    "code": "1.",
-                    "name": "ACTIVO",
-                    "text": "1. — ACTIVO",
-                    "openingBalance": 0,
-                    "openingBalanceText": "$ 0,00",
-                    "periodDebit": 15654826.680000,
-                    "periodCredit": 15654826.680000,
-                    "periodDebitText": "$ 15.654.826,68",
-                    "periodCreditText": "$ 15.654.826,68",
-                    "closingBalance": 0.000000,
-                    "closingBalanceText": "$ 0,00",
-                    "openingDebit": 0,
-                    "openingCredit": 0,
-                    "openingDebitText": "$ 0,00",
-                    "openingCreditText": "$ 0,00",
-                    "closingDebit": 0,
-                    "closingCredit": 0,
-                    "closingDebitText": "$ 0,00",
-                    "closingCreditText": "$ 0,00"
-                },
-                {
-                    "id": "7d6ebfa3-d0b2-4db3-90c8-f6ea3b24e931",
-                    "parentId": "28b98e67-93ae-41f9-9456-f7a7fabd21bd",
-                    "level": 2,
-                    "code": "1.01.",
-                    "name": "ACTIVO CORRIENTE",
-                    "text": "1.01. — ACTIVO CORRIENTE",
-                    "openingBalance": 0,
-                    "openingBalanceText": "$ 0,00",
-                    "periodDebit": 15654826.680000,
-                    "periodCredit": 15654826.680000,
-                    "periodDebitText": "$ 15.654.826,68",
-                    "periodCreditText": "$ 15.654.826,68",
-                    "closingBalance": 0.000000,
-                    "closingBalanceText": "$ 0,00",
-                    "openingDebit": 0,
-                    "openingCredit": 0,
-                    "openingDebitText": "$ 0,00",
-                    "openingCreditText": "$ 0,00",
-                    "closingDebit": 0,
-                    "closingCredit": 0,
-                    "closingDebitText": "$ 0,00",
-                    "closingCreditText": "$ 0,00"
-                },
-                {
-                    "id": "8489ecac-3af6-454e-be08-1f8d6312b214",
-                    "parentId": "7d6ebfa3-d0b2-4db3-90c8-f6ea3b24e931",
-                    "level": 3,
-                    "code": "1.01.01.",
-                    "name": "EFECTIVO Y EQUIVALENTES DE EFECTIVO",
-                    "text": "1.01.01. — EFECTIVO Y EQUIVALENTES DE EFECTIVO",
-                    "openingBalance": 0,
-                    "openingBalanceText": "$ 0,00",
-                    "periodDebit": 15654826.680000,
-                    "periodCredit": 15654826.680000,
-                    "periodDebitText": "$ 15.654.826,68",
-                    "periodCreditText": "$ 15.654.826,68",
-                    "closingBalance": 0.000000,
-                    "closingBalanceText": "$ 0,00",
-                    "openingDebit": 0,
-                    "openingCredit": 0,
-                    "openingDebitText": "$ 0,00",
-                    "openingCreditText": "$ 0,00",
-                    "closingDebit": 0,
-                    "closingCredit": 0,
-                    "closingDebitText": "$ 0,00",
-                    "closingCreditText": "$ 0,00"
-                },
-                {
-                    "id": "54bf1777-04d3-4f24-8e51-45678569f0b5",
-                    "parentId": "8489ecac-3af6-454e-be08-1f8d6312b214",
-                    "level": 4,
-                    "code": "1.01.01.01.",
-                    "name": "CAJA",
-                    "text": "1.01.01.01. — CAJA",
-                    "openingBalance": 0,
-                    "openingBalanceText": "$ 0,00",
-                    "periodDebit": 15654815.420000,
-                    "periodCredit": 15654826.680000,
-                    "periodDebitText": "$ 15.654.815,42",
-                    "periodCreditText": "$ 15.654.826,68",
-                    "closingBalance": -11.260000,
-                    "closingBalanceText": "-$ 11,26",
-                    "openingDebit": 0,
-                    "openingCredit": 0,
-                    "openingDebitText": "$ 0,00",
-                    "openingCreditText": "$ 0,00",
-                    "closingDebit": 0,
-                    "closingCredit": 11.260000,
-                    "closingDebitText": "$ 0,00",
-                    "closingCreditText": "$ 11,26"
-                },
-                {
-                    "id": "ed729f23-b8da-4537-9659-4a03b72e1637",
-                    "parentId": "54bf1777-04d3-4f24-8e51-45678569f0b5",
-                    "level": 5,
-                    "code": "1.01.01.01.02",
-                    "name": "CAJA GENERAL",
-                    "text": "1.01.01.01.02 — CAJA GENERAL",
-                    "openingBalance": 0,
-                    "openingBalanceText": "$ 0,00",
-                    "periodDebit": 158.890000,
-                    "periodCredit": 1.540000,
-                    "periodDebitText": "$ 158,89",
-                    "periodCreditText": "$ 1,54",
-                    "closingBalance": 157.350000,
-                    "closingBalanceText": "$ 157,35",
-                    "openingDebit": 0,
-                    "openingCredit": 0,
-                    "openingDebitText": "$ 0,00",
-                    "openingCreditText": "$ 0,00",
-                    "closingDebit": 157.350000,
-                    "closingCredit": 0,
-                    "closingDebitText": "$ 157,35",
-                    "closingCreditText": "$ 0,00"
-                },
-                {
-                    "id": "f7f5bbea-c6a0-43e5-a13f-0509378e2f66",
-                    "parentId": "54bf1777-04d3-4f24-8e51-45678569f0b5",
-                    "level": 5,
-                    "code": "1.01.01.01.03",
-                    "name": "CAJA CHICA PLANTA",
-                    "text": "1.01.01.01.03 — CAJA CHICA PLANTA",
-                    "openingBalance": 0,
-                    "openingBalanceText": "$ 0,00",
-                    "periodDebit": 15654656.530000,
-                    "periodCredit": 15654825.140000,
-                    "periodDebitText": "$ 15.654.656,53",
-                    "periodCreditText": "$ 15.654.825,14",
-                    "closingBalance": -168.610000,
-                    "closingBalanceText": "-$ 168,61",
-                    "openingDebit": 0,
-                    "openingCredit": 0,
-                    "openingDebitText": "$ 0,00",
-                    "openingCreditText": "$ 0,00",
-                    "closingDebit": 0,
-                    "closingCredit": 168.610000,
-                    "closingDebitText": "$ 0,00",
-                    "closingCreditText": "$ 168,61"
-                },
-                {
-                    "id": "3152ab17-b7db-4ce7-8993-82ac50ab546d",
-                    "parentId": "8489ecac-3af6-454e-be08-1f8d6312b214",
-                    "level": 4,
-                    "code": "1.01.01.02.",
-                    "name": "BANCOS",
-                    "text": "1.01.01.02. — BANCOS",
-                    "openingBalance": 0,
-                    "openingBalanceText": "$ 0,00",
-                    "periodDebit": 11.260000,
-                    "periodCredit": 0.000000,
-                    "periodDebitText": "$ 11,26",
-                    "periodCreditText": "$ 0,00",
-                    "closingBalance": 11.260000,
-                    "closingBalanceText": "$ 11,26",
-                    "openingDebit": 0,
-                    "openingCredit": 0,
-                    "openingDebitText": "$ 0,00",
-                    "openingCreditText": "$ 0,00",
-                    "closingDebit": 11.260000,
-                    "closingCredit": 0,
-                    "closingDebitText": "$ 11,26",
-                    "closingCreditText": "$ 0,00"
-                },
-                {
-                    "id": "b53a410f-f652-4087-b226-8a9fe09d09f0",
-                    "parentId": "3152ab17-b7db-4ce7-8993-82ac50ab546d",
-                    "level": 5,
-                    "code": "1.01.01.02.01",
-                    "name": "CITIBANK CTA CTE. 0076051011",
-                    "text": "1.01.01.02.01 — CITIBANK CTA CTE. 0076051011",
-                    "openingBalance": 0,
-                    "openingBalanceText": "$ 0,00",
-                    "periodDebit": 11.260000,
-                    "periodCredit": 0.000000,
-                    "periodDebitText": "$ 11,26",
-                    "periodCreditText": "$ 0,00",
-                    "closingBalance": 11.260000,
-                    "closingBalanceText": "$ 11,26",
-                    "openingDebit": 0,
-                    "openingCredit": 0,
-                    "openingDebitText": "$ 0,00",
-                    "openingCreditText": "$ 0,00",
-                    "closingDebit": 11.260000,
-                    "closingCredit": 0,
-                    "closingDebitText": "$ 11,26",
-                    "closingCreditText": "$ 0,00"
-                }
-            ],
-            "totals": {
-                "openingBalance": 0,
-                "periodDebit": 15654826.680000,
-                "periodCredit": 15654826.680000,
-                "closingBalance": 0,
-                "openingBalanceText": "$ 0,00",
-                "periodDebitText": "$ 15.654.826,68",
-                "periodCreditText": "$ 15.654.826,68",
-                "closingBalanceText": "$ 0,00",
-                "openingDebit": 0,
-                "openingCredit": 0,
-                "closingDebit": 0,
-                "closingCredit": 0,
-                "openingDebitText": "$ 0,00",
-                "openingCreditText": "$ 0,00",
-                "closingDebitText": "$ 0,00",
-                "closingCreditText": "$ 0,00"
-            }
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.01.01.002",
+            "Caja Quito",
+            "200,00",
+            "0,00",
+            "200,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.01.02.001",
+            "Bco. Produbanco Cta. Cte. 02005162161",
+            "57.596,75",
+            "35.694,82",
+            "21.901,93"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.01.02.002",
+            "Bco. Pacifico Ahorro Cta. 1041422120",
+            "9.049,41",
+            "0,00",
+            "9.049,41"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.01.02.003",
+            "Bco. Pacifico Cta. Cte. 7773935",
+            "66.571,81",
+            "0,00",
+            "66.571,81"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.01.02.004",
+            "Bco. BanEcuador Cta Cte.3001603445",
+            "997,48",
+            "0,00",
+            "997,48"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.01.02.005",
+            "Banco Solidario Cta. Aho. 5927006247126",
+            "37,64",
+            "0,00",
+            "37,64"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.01.02.007",
+            "Banco Internacional Cta Cte. 420631341",
+            "13,35",
+            "0,00",
+            "13,35"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.02.05.001",
+            "Clientes Nacionales No Relacionados",
+            "803.258,89",
+            "15.841,28",
+            "787.417,61"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.02.05.002",
+            "Clientes del Exterior No Relacionados",
+            "3.870,37",
+            "0,00",
+            "3.870,37"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.02.05.003",
+            "CNT x Cobrar Recon Ingresos",
+            "25.955,38",
+            "0,00",
+            "25.955,38"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.02.05.009",
+            "Varias Ctas x Cobrar Recon Ingresos",
+            "23.823,99",
+            "0,00",
+            "23.823,99"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.02.07.010",
+            "Nelly Valladares Anticipo",
+            "500,00",
+            "0,00",
+            "500,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.02.07.099",
+            "Otros anticipos a empleados",
+            "13,29",
+            "0,00",
+            "13,29"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.03.02.010",
+            "Inv. Equipos Palo Alto",
+            "52.772,26",
+            "0,00",
+            "52.772,26"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.03.02.012",
+            "Inv. Equipo Atalla",
+            "19.499,04",
+            "0,00",
+            "19.499,04"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.03.04.002",
+            "Compra de Servicios Locales",
+            "672.701,25",
+            "9.963,32",
+            "662.737,93"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.04.01.001",
+            "Gastos pagados por anticipado",
+            "2.524,66",
+            "0,00",
+            "2.524,66"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.04.01.024",
+            "Costo CNT Fortigate - SRI",
+            "3.407,42",
+            "0,00",
+            "3.407,42"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.04.01.025",
+            "Costo CNT Fortigate - Consejo de Nacionalidades In",
+            "404,46",
+            "0,00",
+            "404,46"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.04.01.026",
+            "Costo CNT Fortigate - FAE - FORTINET SDWAN",
+            "297.489,32",
+            "0,00",
+            "297.489,32"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.04.01.027",
+            "Costo CNT Fortigate - C. JUDICATURA - FORTINET SDW",
+            "416.807,63",
+            "0,00",
+            "416.807,63"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.04.03.003",
+            "Anticipos proveedores varios",
+            "82.435,55",
+            "93,73",
+            "82.341,82"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.04.04.003",
+            "CxC Iess Subsidios por enfermedad",
+            "20,42",
+            "0,00",
+            "20,42"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.05.01.002",
+            "12% IVA Bienes y servicios",
+            "7.772,34",
+            "0,00",
+            "7.772,34"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.05.02.001",
+            "IVA Retenido en Ventas",
+            "678.049,99",
+            "0,00",
+            "678.049,99"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.05.03.001",
+            "Retencion en la Fte. del Periodo",
+            "173,89",
+            "0,00",
+            "173,89"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.05.03.008",
+            "Retencion en la Fte. 2022",
+            "66.258,17",
+            "0,00",
+            "66.258,17"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.05.03.009",
+            "Retencion en la Fte. 2023",
+            "18.647,43",
+            "0,00",
+            "18.647,43"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.01.05.03.010",
+            "Retencion en la Fte. 2024",
+            "101.360,79",
+            "0,00",
+            "101.360,79"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.01.01.002",
+            "Equipos de Computo",
+            "113.403,36",
+            "0,00",
+            "113.403,36"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.01.01.003",
+            "Muebles y Equipos",
+            "61.307,52",
+            "0,00",
+            "61.307,52"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.01.01.004",
+            "Instalaciones",
+            "23.727,39",
+            "0,00",
+            "23.727,39"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.01.01.005",
+            "Equipos Archiving Netapp",
+            "107.377,07",
+            "0,00",
+            "107.377,07"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.01.12.001",
+            "Deprec. Acum. Eq. en Renta",
+            "0,00",
+            "50.700,80",
+            "-50.700,80"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.01.12.002",
+            "Deprec. Acum. Eq. de Computo",
+            "0,00",
+            "94.854,09",
+            "-94.854,09"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.01.12.003",
+            "Deprec. Acum. Muebles y Equipos",
+            "0,00",
+            "52.211,35",
+            "-52.211,35"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.01.12.004",
+            "Deprec. Acum. Instalaciones",
+            "0,00",
+            "9.606,00",
+            "-9.606,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.05.01.001",
+            "Activos por Impuestos Diferidos",
+            "2.248,20",
+            "0,00",
+            "2.248,20"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.05.01.002",
+            "AID-Jubilacion patronal",
+            "8.234,86",
+            "0,00",
+            "8.234,86"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "1.02.05.01.003",
+            "AID-Desahucio",
+            "2.341,81",
+            "0,00",
+            "2.341,81"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": true,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "Subtotal ACTIVO",
+          "Cells": [
+            "",
+            "",
+            "3.730.853,19",
+            "268.965,39",
+            "3.461.887,80"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": true,
+          "Label": "",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": true,
+          "IsHeader": true,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "PASIVO",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.03.01.001",
+            "Proveedores Locales Por Pagar",
+            "10.686,27",
+            "1.326.786,00",
+            "-1.316.099,73"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.03.01.002",
+            "Proveedores del Exterior Por Pagar",
+            "0,00",
+            "126.173,09",
+            "-126.173,09"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.03.01.003",
+            "Tarjeta de Crédito Por Pagar",
+            "384,59",
+            "308,63",
+            "75,96"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.03.01.013",
+            "Liq. Gastos Manuel Lapo Por Pagar",
+            "0,00",
+            "56,65",
+            "-56,65"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.03.01.022",
+            "Otras cuentas por pagar",
+            "0,00",
+            "3.005,29",
+            "-3.005,29"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.04.02.002",
+            "Visa por pagar",
+            "0,00",
+            "1.095,82",
+            "-1.095,82"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.05.01.001",
+            "Provisiones locales varias",
+            "8.361,29",
+            "627.506,28",
+            "-619.144,99"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.001",
+            "302    % Relacion de Dependencia",
+            "0,00",
+            "4.023,65",
+            "-4.023,65"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.002",
+            "303  10% Honorarios Profesionales",
+            "0,00",
+            "5.905,68",
+            "-5.905,68"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.003",
+            "304  8% Predomina el Intelecto/ Notarios",
+            "0,00",
+            "31,47",
+            "-31,47"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.007",
+            "310  1% Transporte",
+            "0,00",
+            "1,11",
+            "-1,11"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.010",
+            "320  8% Arriendos",
+            "0,00",
+            "5,15",
+            "-5,15"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.015",
+            "25% Exterior Sin Convenio",
+            "0,00",
+            "41.856,20",
+            "-41.856,20"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.019",
+            "312 Transferencia bienes muebles 1,75%",
+            "0,00",
+            "4.936,32",
+            "-4.936,32"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.021",
+            "3440 Otras Retenciones Aplicables 2,75%",
+            "0,00",
+            "3.408,85",
+            "-3.408,85"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.025",
+            "343 Otras retenciones aplicables el 1%",
+            "0,00",
+            "75,47",
+            "-75,47"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.01.026",
+            "303A Servicios profesionales prestados por socieda",
+            "0,00",
+            "22,58",
+            "-22,58"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.02.001",
+            "12% IVA Ventas",
+            "2.018,83",
+            "1.985,44",
+            "33,39"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.03.001",
+            "725  30% IVA Bienes",
+            "0,00",
+            "503,20",
+            "-503,20"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.03.002",
+            "729  70% IVA Servicios",
+            "0,00",
+            "14.990,04",
+            "-14.990,04"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.03.003",
+            "731 100% IVA",
+            "0,00",
+            "34.450,62",
+            "-34.450,62"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.03.006",
+            "721 10% IVA Bienes Contribuyentes",
+            "0,00",
+            "4.628,36",
+            "-4.628,36"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.03.007",
+            "723 20% IVA Servicios Contribuyentes",
+            "0,00",
+            "3.447,94",
+            "-3.447,94"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.04.001",
+            "Aporte Patronal por Pagar",
+            "11.704,61",
+            "12.647,87",
+            "-943,26"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.04.002",
+            "Aporte Personal por Pagar",
+            "9.046,83",
+            "9.752,24",
+            "-705,41"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.04.003",
+            "Prestamos Hipotecarios por Pagar",
+            "2.686,24",
+            "2.686,24",
+            "0,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.04.004",
+            "Prestamos Quirografarios por Pagar",
+            "1.301,71",
+            "1.301,71",
+            "0,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.04.005",
+            "Fondos de reserva por pagar",
+            "476,78",
+            "543,42",
+            "-66,64"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.06.001",
+            "Decimo Tercer Sueldo Provision",
+            "0,00",
+            "8.247,89",
+            "-8.247,89"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.06.002",
+            "Decimo Cuarto Sueldo Provision",
+            "0,00",
+            "9.207,50",
+            "-9.207,50"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.06.003",
+            "Vacaciones Provision",
+            "0,00",
+            "48.214,88",
+            "-48.214,88"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.06.005",
+            "15% Participacion Trabajadores",
+            "0,00",
+            "25.630,84",
+            "-25.630,84"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.01.07.06.009",
+            "Liquidaciones por Pagar",
+            "0,00",
+            "39.822,74",
+            "-39.822,74"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.02.02.01.003",
+            "ARGIDER S.A x pagar largo plazo",
+            "0,00",
+            "210.000,00",
+            "-210.000,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.02.07.01.001",
+            "Jubilacion Patronal",
+            "0,00",
+            "57.533,98",
+            "-57.533,98"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.02.07.01.002",
+            "Desahucio provision",
+            "0,00",
+            "30.090,05",
+            "-30.090,05"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.02.08.01.001",
+            "Cto. Transf. Bancaria por pagar",
+            "0,00",
+            "1.552,16",
+            "-1.552,16"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "2.02.08.01.002",
+            "ISD Transf. Bancaria por pagar",
+            "0,00",
+            "97,63",
+            "-97,63"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": true,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "Subtotal PASIVO",
+          "Cells": [
+            "",
+            "",
+            "46.667,15",
+            "2.662.532,99",
+            "-2.615.865,84"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": true,
+          "Label": "",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": true,
+          "IsHeader": true,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "PATRIMONIO",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.01.01.01.002",
+            "Monica Erazo capital",
+            "0,00",
+            "32.400,00",
+            "-32.400,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.01.01.01.003",
+            "Edgar Espin capital",
+            "0,00",
+            "32.400,00",
+            "-32.400,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.01.01.01.004",
+            "Manuel Lapo capital",
+            "0,00",
+            "61.600,00",
+            "-61.600,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.01.01.01.005",
+            "Santiago Arroyo capital",
+            "0,00",
+            "61.600,00",
+            "-61.600,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.01.01.01.006",
+            "Omar Aguilar-Capital",
+            "0,00",
+            "10.000,00",
+            "-10.000,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.01.01.01.007",
+            "Dario Espin- Capital",
+            "0,00",
+            "2.000,00",
+            "-2.000,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.001",
+            "Reserva Legal 2009",
+            "0,00",
+            "137,08",
+            "-137,08"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.002",
+            "Reserva Legal 2010",
+            "0,00",
+            "159,86",
+            "-159,86"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.003",
+            "Reserva Legal 2011",
+            "0,00",
+            "243,84",
+            "-243,84"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.004",
+            "Reserva Legal 2012",
+            "0,00",
+            "2.265,12",
+            "-2.265,12"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.005",
+            "Reserva Legal 2013",
+            "0,00",
+            "1.536,07",
+            "-1.536,07"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.006",
+            "Reserva Legal 2014",
+            "0,00",
+            "2.290,64",
+            "-2.290,64"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.007",
+            "Reserva Legal 2015",
+            "0,00",
+            "586,54",
+            "-586,54"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.008",
+            "Reserva Legal 2016",
+            "0,00",
+            "2.301,35",
+            "-2.301,35"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.009",
+            "Reserva Legal 2017",
+            "0,00",
+            "778,26",
+            "-778,26"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.010",
+            "Reserva Legal 2018",
+            "0,00",
+            "1.325,49",
+            "-1.325,49"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.011",
+            "Reserva Legal 2019",
+            "0,00",
+            "4.117,91",
+            "-4.117,91"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.012",
+            "Reserva Legal 2020",
+            "0,00",
+            "11.652,16",
+            "-11.652,16"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.013",
+            "Reserva Legal 2021",
+            "0,00",
+            "11.415,42",
+            "-11.415,42"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.014",
+            "Reserva Legal 2022",
+            "0,00",
+            "5.713,37",
+            "-5.713,37"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.03.01.015",
+            "Reserva Legal 2023",
+            "0,00",
+            "26.042,71",
+            "-26.042,71"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.06.01.12",
+            "Utilidad año 2020",
+            "0,00",
+            "86.855,37",
+            "-86.855,37"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.06.01.13",
+            "Utilidad año 2021",
+            "0,00",
+            "102.738,78",
+            "-102.738,78"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.06.01.14",
+            "Utilidad año 2022",
+            "0,00",
+            "51.420,30",
+            "-51.420,30"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.06.01.15",
+            "Utilidad año 2023",
+            "0,00",
+            "234.384,37",
+            "-234.384,37"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.06.01.16",
+            "Utilidad año 2024",
+            "0,00",
+            "106.167,09",
+            "-106.167,09"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "3.06.03.01.001",
+            "Resultados Acum. Adopcion NIIFS",
+            "530,11",
+            "0,00",
+            "530,11"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": true,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "Subtotal PATRIMONIO",
+          "Cells": [
+            "",
+            "",
+            "530,11",
+            "852.131,73",
+            "-851.601,62"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": true,
+          "Label": "",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": true,
+          "IsHeader": true,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "INGRESOS",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "4.1.03.13.001",
+            "Min. Gobierno",
+            "13.458,86",
+            "0,00",
+            "13.458,86"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "4.1.05.03.001",
+            "Medianet",
+            "0,00",
+            "3.923,24",
+            "-3.923,24"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "4.1.05.03.003",
+            "Credimatic",
+            "0,00",
+            "2.723,08",
+            "-2.723,08"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "4.1.05.03.004",
+            "BBP Bank",
+            "0,00",
+            "3.365,54",
+            "-3.365,54"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "4.1.05.03.009",
+            "Binaria ( BGR)",
+            "0,00",
+            "2.400,00",
+            "-2.400,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "4.1.06.01.001",
+            "Empresa Electrica Riobamba",
+            "0,00",
+            "824,37",
+            "-824,37"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "4.2.01.02.001",
+            "Otros Ingresos",
+            "0,00",
+            "0,01",
+            "-0,01"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": true,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "Subtotal INGRESOS",
+          "Cells": [
+            "",
+            "",
+            "13.458,86",
+            "13.236,24",
+            "222,62"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": true,
+          "Label": "",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": true,
+          "IsHeader": true,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "COSTOS",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.1.02.03.009",
+            "Binaria (BGR)",
+            "2.050,00",
+            "0,00",
+            "2.050,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.1.05.03.001",
+            "Medianet",
+            "3.176,70",
+            "500,07",
+            "2.676,63"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.1.05.03.003",
+            "Credimatic",
+            "1.991,43",
+            "1.991,43",
+            "0,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.1.05.03.004",
+            "BBP Bank",
+            "2.560,77",
+            "910,83",
+            "1.649,94"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.1.05.03.009",
+            "Binaria ( BGR)",
+            "0,00",
+            "2.050,00",
+            "-2.050,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.1.06.01.001",
+            "Empresa Electrica Riobamba",
+            "640,26",
+            "421,51",
+            "218,75"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.02.01.003",
+            "Aseo y Mantenimiento de Oficina",
+            "54,23",
+            "0,00",
+            "54,23"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.02.01.004",
+            "Electricidad",
+            "59,80",
+            "0,00",
+            "59,80"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.02.01.005",
+            "Internet",
+            "61,00",
+            "0,00",
+            "61,00"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.02.01.007",
+            "Telefonia Convencional",
+            "64,48",
+            "0,00",
+            "64,48"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.02.01.019",
+            "Bases y Propuestas",
+            "66,82",
+            "0,00",
+            "66,82"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.02.01.020",
+            "Donaciones",
+            "72,33",
+            "0,00",
+            "72,33"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.02.01.024",
+            "Telefonia Movil",
+            "377,99",
+            "0,00",
+            "377,99"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.02.01.043",
+            "Gastos de Viaje Hotel",
+            "51,45",
+            "0,00",
+            "51,45"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": [
+            "5.2.03.02.001",
+            "Gastos Bancarios Varios",
+            "3,62",
+            "0,00",
+            "3,62"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": true,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "Subtotal COSTOS",
+          "Cells": [
+            "",
+            "",
+            "11.230,88",
+            "5.873,84",
+            "5.357,04"
+          ]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": true,
+          "Label": "",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": true,
+          "IsSpacer": false,
+          "Label": "TOTAL",
+          "Cells": [
+            "",
+            "",
+            "3.802.740,19",
+            "3.802.740,19",
+            "0,00"
+          ]
         }
-    },
-    "FileName": "core-accounting-trial-balance.payload.json"
+      ]
+    }
+  }
 }
