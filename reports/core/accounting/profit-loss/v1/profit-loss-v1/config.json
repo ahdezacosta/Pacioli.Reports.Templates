@@ -1,0 +1,20 @@
+{
+    "name": "profit-loss-v1",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "shortid": "plTmpl_v1",
+    "data": {
+        "shortid": "plSmpDt1a"
+    },
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1771375439006
+    },
+    "modificationDate": {
+        "$$date": 1771375439006
+    },
+    "_id": "PLTemplateAcc001b",
+    "$entitySet": "templates"
+}

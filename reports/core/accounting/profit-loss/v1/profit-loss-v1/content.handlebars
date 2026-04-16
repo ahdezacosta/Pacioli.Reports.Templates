@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{Model.report.Title}}</title>
+
+    <style>
+    {{asset "/core/accounting/profit-loss/v1/styles.css"}}
+    </style>
+</head>
+
+<body>
+
+    <!-- Company + Report header -->
+    <div class="topbar">
+        <div class="company-block">
+            <div class="logo">
+                {{#if Model.context.company.HasLogo}}
+                <img class="logo-img" src="{{Model.context.company.LogoUrl}}" alt="Logo" />
+                {{else}}
+                <div class="logo-fallback">{{Model.context.company.LogoInitials}}</div>
+                {{/if}}
+            </div>
+
+            <div class="company-details">
+                <div class="company-name">
+                    {{#if Model.context.company.TradeName}}
+                    {{Model.context.company.TradeName}}
+                    {{else}}
+                    {{Model.context.company.Name}}
+                    {{/if}}
+                </div>
+
+                {{#if Model.context.company.Identification}}
+                <div class="company-line mono">{{Model.context.company.Identification}}</div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="report-title-block">
+            <div class="report-meta-name">{{Model.context.metadata.ReportName}}</div>
+            <div class="report-meta-title mono">{{Model.report.Title}}</div>
+        </div>
+
+        <div class="topbar-spacer"></div>
+    </div>
+
+    <!-- Data table -->
+    <table class="rpt-table">
+        <thead>
+            <tr>
+                {{#each Model.report.Columns}}
+                <th>{{this}}</th>
+                {{/each}}
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each Model.report.Rows}}
+
+            {{#if IsSpacer}}
+            <tr class="row-spacer"><td colspan="100"></td></tr>
+            {{else}}
+
+            {{#if IsSectionHeader}}
+            <tr class="row-section-header">
+                <td class="section-header-cell" colspan="100">{{Label}}</td>
+            </tr>
+            {{else}}
+
+            {{#if IsTotal}}
+            <tr class="row-total">
+                <td class="lbl-cell" colspan="2">
+                    {{Label}}
+                    {{#if Cells.[4]}}<span class="result-chip result-chip--{{Cells.[4]}}">{{Cells.[5]}}</span>{{/if}}
+                </td>
+                <td>{{Cells.[2]}}</td>
+                <td>{{Cells.[3]}}</td>
+            </tr>
+            {{else}}
+
+            {{#if IsSubtotal}}
+            <tr class="row-subtotal">
+                <td class="lbl-cell" colspan="2">{{Label}}</td>
+                <td>{{Cells.[2]}}</td>
+                <td>{{Cells.[3]}}</td>
+            </tr>
+            {{else}}
+
+            <tr class="row-data">
+                {{#each Cells}}<td>{{this}}</td>{{/each}}
+            </tr>
+
+            {{/if}}
+            {{/if}}
+            {{/if}}
+            {{/if}}
+
+            {{/each}}
+        </tbody>
+    </table>
+
+    <!-- Signature footer -->
+    <div class="signature-footer">
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.approved]}}</div>
+        </div>
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.reviewed]}}</div>
+        </div>
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.prepared]}}</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer footer-two-cols">
+        <div class="mono">{{Model.context.metadata.ReportName}}</div>
+        <div>{{Model.context.metadata.GeneratedAt}}</div>
+    </div>
+
+</body>
+</html>

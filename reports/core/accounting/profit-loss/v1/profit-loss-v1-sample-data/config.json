@@ -1,0 +1,12 @@
+{
+    "name": "profit-loss-v1-sample-data",
+    "shortid": "plSmpDt1a",
+    "creationDate": {
+        "$$date": 1771375439000
+    },
+    "modificationDate": {
+        "$$date": 1771375439000
+    },
+    "_id": "PLSampleData001b",
+    "$entitySet": "data"
+}
