@@ -1,0 +1,12 @@
+{
+    "name": "profit-loss",
+    "creationDate": {
+        "$$date": 1771375276727
+    },
+    "modificationDate": {
+        "$$date": 1771375276727
+    },
+    "shortid": "plFldMain",
+    "_id": "PLMainFolderAcc01",
+    "$entitySet": "folders"
+}

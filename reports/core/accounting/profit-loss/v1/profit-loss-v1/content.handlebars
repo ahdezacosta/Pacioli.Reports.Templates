@@ -5,7 +5,7 @@
     <title>{{Model.report.Title}}</title>
 
     <style>
-    {{asset "/core/accounting/trial-balance/v1/styles.css"}}
+    {{asset "/core/accounting/profit-loss/v1/styles.css"}}
     </style>
 </head>
 
@@ -37,11 +37,12 @@
             </div>
         </div>
 
-    </div>
+        <div class="report-title-block">
+            <div class="report-meta-name">{{Model.context.metadata.ReportName}}</div>
+            <div class="report-meta-title mono">{{Model.report.Title}}</div>
+        </div>
 
-    <div class="report-title-block">
-        <div class="report-meta-name">{{Model.context.metadata.ReportName}}</div>
-        <div class="report-meta-title mono">{{Model.report.Title}}</div>
+        <div class="topbar-spacer"></div>
     </div>
 
     <!-- Data table -->
@@ -69,11 +70,12 @@
 
             {{#if IsTotal}}
             <tr class="row-total">
-                <td class="lbl-cell" colspan="2">{{Label}}</td>
+                <td class="lbl-cell" colspan="2">
+                    {{Label}}
+                    {{#if Cells.[4]}}<span class="result-chip result-chip--{{Cells.[4]}}">{{Cells.[5]}}</span>{{/if}}
+                </td>
                 <td>{{Cells.[2]}}</td>
                 <td>{{Cells.[3]}}</td>
-                <td>{{Cells.[4]}}</td>
-                <td>{{Cells.[5]}}</td>
             </tr>
             {{else}}
 
@@ -82,8 +84,6 @@
                 <td class="lbl-cell" colspan="2">{{Label}}</td>
                 <td>{{Cells.[2]}}</td>
                 <td>{{Cells.[3]}}</td>
-                <td>{{Cells.[4]}}</td>
-                <td>{{Cells.[5]}}</td>
             </tr>
             {{else}}
 
@@ -99,6 +99,22 @@
             {{/each}}
         </tbody>
     </table>
+
+    <!-- Signature footer -->
+    <div class="signature-footer">
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.approved]}}</div>
+        </div>
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.reviewed]}}</div>
+        </div>
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.prepared]}}</div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <div class="footer footer-two-cols">

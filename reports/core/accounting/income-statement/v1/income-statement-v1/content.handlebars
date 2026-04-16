@@ -11,7 +11,7 @@
 
 <body>
 
-    <!-- Company + Period header -->
+    <!-- Company + Title header -->
     <div class="topbar">
         <div class="company-block">
             <div class="logo">
@@ -48,33 +48,12 @@
             </div>
         </div>
 
-        <div class="period-block">
-            {{#if Model.context.period}}
-                <div class="period-title">{{Model.context.resources.[labels.period]}}</div>
-                <div class="period-key mono">{{Model.context.period.PeriodKey}}</div>
-                <div class="period-range muted">
-                    {{Model.context.resources.[labels.from]}} <span class="mono">{{Model.model.filters.fromDate}}</span>
-                    •
-                    {{Model.context.resources.[labels.to]}} <span class="mono">{{Model.model.filters.toDate}}</span>
-                </div>
-            {{else}}
-                <div class="period-title">{{Model.context.resources.[labels.period]}}</div>
-                <div class="period-key mono">
-                    {{Model.model.filters.fromDate}} — {{Model.model.filters.toDate}}
-                </div>
-            {{/if}}
+        <div class="report-title-block">
+            <div class="report-meta-title">{{Model.context.resources.[titles.incomeStatement]}}</div>
+            <div class="report-meta-range muted">{{Model.model.filters.fromDate}} — {{Model.model.filters.toDate}}</div>
         </div>
-    </div>
 
-    <!-- Report title -->
-    <div class="header">
-        <div>
-            <h1 class="title">{{Model.context.resources.[titles.incomeStatement]}}</h1>
-            <div class="subtitle muted">
-                {{Model.context.resources.[labels.from]}} <span class="mono">{{Model.model.filters.fromDate}}</span>
-                {{Model.context.resources.[labels.to]}} <span class="mono">{{Model.model.filters.toDate}}</span>
-            </div>
-        </div>
+        <div class="topbar-spacer"></div>
     </div>
 
     {{#if Model.model.sections.length}}
@@ -131,6 +110,11 @@
                 <td style="text-align:right; font-weight:600;">{{Model.context.resources.[labels.totalExpenses]}}</td>
                 <td style="text-align:right;" class="mono">{{Model.model.totalExpensesText}}</td>
             </tr>
+            <tr class="summary-divider">
+                <td></td>
+                <td style="text-align:right; font-weight:600;">{{Model.context.resources.[labels.monthlyResult]}}</td>
+                <td style="text-align:right;" class="mono">{{Model.model.monthlyResultText}}</td>
+            </tr>
             <tr class="summary-total {{#if Model.model.isProfit}}summary-net-income{{else}}summary-net-loss{{/if}}">
                 <td></td>
                 <td style="text-align:right; font-weight:700; font-size:13px;">
@@ -149,6 +133,22 @@
             {{Model.context.resources.[labels.notAvailable]}}
         </p>
     {{/if}}
+
+    <!-- Signature footer -->
+    <div class="signature-footer">
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.approved]}}</div>
+        </div>
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.reviewed]}}</div>
+        </div>
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            <div class="signature-label">{{Model.context.resources.[labels.prepared]}}</div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <div class="footer">
