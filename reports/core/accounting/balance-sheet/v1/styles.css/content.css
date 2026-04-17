@@ -108,11 +108,12 @@ body {
     font-size: 8.5px;
 }
 
-/* Column widths — 3 cols — portrait A4 (~186mm usable)
-   1: Código  2: Nombre  3: Saldo */
-.rpt-table th:nth-child(1), .rpt-table td:nth-child(1) { width: 16%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.rpt-table th:nth-child(2), .rpt-table td:nth-child(2) { width: 52%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.rpt-table th:nth-child(3), .rpt-table td:nth-child(3) { width: 32%; }
+/* Column widths — 4 cols — portrait A4 (~186mm usable)
+   1: Código  2: Nombre  3: Parcial  4: Total */
+.rpt-table th:nth-child(1), .rpt-table td:nth-child(1) { width: 14%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rpt-table th:nth-child(2), .rpt-table td:nth-child(2) { width: 44%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rpt-table th:nth-child(3), .rpt-table td:nth-child(3) { width: 21%; }
+.rpt-table th:nth-child(4), .rpt-table td:nth-child(4) { width: 21%; }
 
 /* Header row */
 .rpt-table thead th {
@@ -134,9 +135,9 @@ body {
 thead { display: table-header-group; }
 tr    { page-break-inside: avoid; }
 
-/* Right-align last column (Saldo) */
-.rpt-table th:nth-last-child(-n+1),
-.rpt-table td:nth-last-child(-n+1) {
+/* Right-align last 2 columns (Parcial, Total) */
+.rpt-table th:nth-last-child(-n+2),
+.rpt-table td:nth-last-child(-n+2) {
     text-align: right;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
