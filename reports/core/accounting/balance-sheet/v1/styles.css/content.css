@@ -184,6 +184,11 @@ tr    { page-break-inside: avoid; }
 }
 
 /* ── Total row (Total Pasivo + Patrimonio) ─────────────────────── */
+.row-total {
+    break-before: avoid;
+    page-break-before: avoid;
+}
+
 .row-total td {
     padding: 3px 4px;
     font-weight: 700;
@@ -199,7 +204,37 @@ tr    { page-break-inside: avoid; }
     text-align: left;
 }
 
+/* ── Result chip (Utilidad / Pérdida) ──────────────────────────── */
+.result-chip {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 5px;
+    font-size: 7px;
+    font-weight: 700;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    vertical-align: middle;
+}
+
+.result-chip--utilidad {
+    background: #d1fae5;
+    color: #065f46;
+    border: 0.5px solid #6ee7b7;
+}
+
+.result-chip--perdida {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 0.5px solid #fca5a5;
+}
+
 /* ── Spacer ────────────────────────────────────────────────────── */
+.row-spacer {
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
 .row-spacer td {
     height: 4px;
     padding: 0;

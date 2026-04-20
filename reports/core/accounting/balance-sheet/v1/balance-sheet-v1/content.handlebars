@@ -70,7 +70,10 @@
 
             {{#if IsTotal}}
             <tr class="row-total">
-                <td class="lbl-cell" colspan="2">{{Label}}</td>
+                <td class="lbl-cell" colspan="2">
+                    {{Label}}
+                    {{#if Cells.[4]}}<span class="result-chip result-chip--{{Cells.[4]}}">{{Cells.[5]}}</span>{{/if}}
+                </td>
                 <td>{{Cells.[2]}}</td>
                 <td>{{Cells.[3]}}</td>
             </tr>
