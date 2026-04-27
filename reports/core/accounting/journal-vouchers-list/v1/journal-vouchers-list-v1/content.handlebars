@@ -5,13 +5,13 @@
     <title>{{Model.report.Title}}</title>
 
     <style>
-    {{asset "/core/accounting/profit-loss/v1/styles.css"}}
+    {{asset "/core/accounting/journal-vouchers-list/v1/styles.css"}}
     </style>
 </head>
 
 <body>
 
-    <!-- Company + Report header -->
+    <!-- Topbar (canonical 3-column) -->
     <div class="topbar">
         <div class="company-block">
             <div class="logo">
@@ -30,7 +30,6 @@
                     {{Model.context.company.Name}}
                     {{/if}}
                 </div>
-
                 {{#if Model.context.company.Identification}}
                 <div class="company-line mono">{{Model.context.company.Identification}}</div>
                 {{/if}}
@@ -59,36 +58,42 @@
             {{#each Model.report.Rows}}
 
             {{#if IsSpacer}}
-            <tr class="row-spacer"><td colspan="100"></td></tr>
+            <tr class="row-spacer"><td colspan="7"></td></tr>
             {{else}}
 
-            {{#if IsSectionHeader}}
-            <tr class="row-section-header">
-                <td class="section-header-cell" colspan="100">{{Label}}</td>
-            </tr>
-            {{else}}
-
-            {{#if IsTotal}}
-            <tr class="row-total">
-                <td class="lbl-cell" colspan="2">
-                    {{Label}}
-                    {{#if Cells.[4]}}<span class="result-chip result-chip--{{Cells.[4]}}">{{Cells.[5]}}</span>{{/if}}
-                </td>
-                <td>{{Cells.[2]}}</td>
-                <td>{{Cells.[3]}}</td>
+            {{#if IsGroupHeader}}
+            <tr class="row-header">
+                <td class="mono bold">{{Cells.[0]}}</td>
+                <td class="mono muted">{{Cells.[1]}}</td>
+                <td class="mono">{{Cells.[2]}}</td>
+                <td colspan="4" class="muted italic">{{Cells.[3]}}</td>
             </tr>
             {{else}}
 
             {{#if IsSubtotal}}
             <tr class="row-subtotal">
-                <td class="lbl-cell" colspan="2">{{Label}}</td>
-                <td>{{Cells.[2]}}</td>
-                <td>{{Cells.[3]}}</td>
+                <td colspan="5" class="lbl-cell">{{Label}}</td>
+                <td>{{Cells.[5]}}</td>
+                <td>{{Cells.[6]}}</td>
+            </tr>
+            {{else}}
+
+            {{#if IsTotal}}
+            <tr class="row-total">
+                <td colspan="5" class="lbl-cell">{{Label}}</td>
+                <td>{{Cells.[5]}}</td>
+                <td>{{Cells.[6]}}</td>
             </tr>
             {{else}}
 
             <tr class="row-data">
-                {{#each Cells}}<td>{{this}}</td>{{/each}}
+                <td class="mono">{{Cells.[0]}}</td>
+                <td>{{Cells.[1]}}</td>
+                <td>{{Cells.[2]}}</td>
+                <td class="mono">{{Cells.[3]}}</td>
+                <td class="mono">{{Cells.[4]}}</td>
+                <td>{{Cells.[5]}}</td>
+                <td>{{Cells.[6]}}</td>
             </tr>
 
             {{/if}}
@@ -100,29 +105,29 @@
         </tbody>
     </table>
 
-    <!-- Signature footer -->
+    <!-- Signature block -->
     {{#if Model.context.signatures.show}}
-    <div class="signature-footer">
-        <div class="signature-col">
-            <div class="signature-line"></div>
+    <div class="sig-block">
+        <div class="sig-col">
+            <div class="sig-line"></div>
             {{#if Model.context.signatures.preparedBy}}
-            <div class="signature-name">{{Model.context.signatures.preparedBy}}</div>
+            <div class="sig-name">{{Model.context.signatures.preparedBy}}</div>
             {{/if}}
-            <div class="signature-label">{{Model.context.resources.[labels.prepared]}}</div>
+            <div class="sig-label">{{Model.context.resources.[labels.preparedBy]}}</div>
         </div>
-        <div class="signature-col">
-            <div class="signature-line"></div>
+        <div class="sig-col">
+            <div class="sig-line"></div>
             {{#if Model.context.signatures.reviewedBy}}
-            <div class="signature-name">{{Model.context.signatures.reviewedBy}}</div>
+            <div class="sig-name">{{Model.context.signatures.reviewedBy}}</div>
             {{/if}}
-            <div class="signature-label">{{Model.context.resources.[labels.reviewed]}}</div>
+            <div class="sig-label">{{Model.context.resources.[labels.reviewedBy]}}</div>
         </div>
-        <div class="signature-col">
-            <div class="signature-line"></div>
+        <div class="sig-col">
+            <div class="sig-line"></div>
             {{#if Model.context.signatures.approvedBy}}
-            <div class="signature-name">{{Model.context.signatures.approvedBy}}</div>
+            <div class="sig-name">{{Model.context.signatures.approvedBy}}</div>
             {{/if}}
-            <div class="signature-label">{{Model.context.resources.[labels.approved]}}</div>
+            <div class="sig-label">{{Model.context.resources.[labels.approvedBy]}}</div>
         </div>
     </div>
     {{/if}}

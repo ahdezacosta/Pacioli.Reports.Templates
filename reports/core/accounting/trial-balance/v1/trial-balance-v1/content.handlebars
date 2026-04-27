@@ -101,6 +101,33 @@
         </tbody>
     </table>
 
+    <!-- Signature footer -->
+    {{#if Model.context.signatures.show}}
+    <div class="signature-footer">
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            {{#if Model.context.signatures.preparedBy}}
+            <div class="signature-name">{{Model.context.signatures.preparedBy}}</div>
+            {{/if}}
+            <div class="signature-label">{{Model.context.resources.[labels.prepared]}}</div>
+        </div>
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            {{#if Model.context.signatures.reviewedBy}}
+            <div class="signature-name">{{Model.context.signatures.reviewedBy}}</div>
+            {{/if}}
+            <div class="signature-label">{{Model.context.resources.[labels.reviewed]}}</div>
+        </div>
+        <div class="signature-col">
+            <div class="signature-line"></div>
+            {{#if Model.context.signatures.approvedBy}}
+            <div class="signature-name">{{Model.context.signatures.approvedBy}}</div>
+            {{/if}}
+            <div class="signature-label">{{Model.context.resources.[labels.approved]}}</div>
+        </div>
+    </div>
+    {{/if}}
+
     <!-- Footer -->
     <div class="footer footer-two-cols">
         <div class="mono">{{Model.context.metadata.ReportName}}</div>

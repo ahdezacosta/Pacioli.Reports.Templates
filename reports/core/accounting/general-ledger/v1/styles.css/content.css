@@ -236,6 +236,37 @@ tr    { page-break-inside: avoid; }
     border: none;
 }
 
+/* ── Signature footer ──────────────────────────────────────────── */
+.signature-footer {
+    display: flex;
+    gap: 20px;
+    margin-top: 28px;
+    margin-bottom: 12px;
+}
+
+.signature-col {
+    flex: 1;
+    text-align: center;
+}
+
+.signature-line {
+    border-top: 0.75px solid #333;
+    margin-bottom: 4px;
+}
+
+.signature-name {
+    font-size: 7.5px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 1px;
+}
+
+.signature-label {
+    font-size: 7.5px;
+    color: #333;
+    font-weight: 600;
+}
+
 /* ── Footer ────────────────────────────────────────────────────── */
 .footer {
     margin-top: 8px;

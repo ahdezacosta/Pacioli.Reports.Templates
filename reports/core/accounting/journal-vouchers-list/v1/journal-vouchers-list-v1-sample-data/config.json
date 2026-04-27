@@ -1,0 +1,12 @@
+{
+    "name": "journal-vouchers-list-v1-sample-data",
+    "shortid": "jvl_sample_data",
+    "creationDate": {
+        "$$date": 1745510000004
+    },
+    "modificationDate": {
+        "$$date": 1745510000004
+    },
+    "_id": "jvlSampleDataXYZ005",
+    "$entitySet": "data"
+}
