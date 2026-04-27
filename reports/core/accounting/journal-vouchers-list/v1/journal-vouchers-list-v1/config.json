@@ -1,0 +1,20 @@
+{
+    "name": "journal-vouchers-list-v1",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "jvl_sample_data"
+    },
+    "shortid": "jvl_template_v1",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1745510000002
+    },
+    "modificationDate": {
+        "$$date": 1745510000002
+    },
+    "_id": "jvlTemplateXYZ003",
+    "$entitySet": "templates"
+}

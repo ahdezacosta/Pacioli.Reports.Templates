@@ -1,0 +1,166 @@
+{
+  "Model": {
+    "context": {
+      "company": {
+        "Name": "EMPRESA DEMO S.A.",
+        "TradeName": "EMPRESA DEMO",
+        "HasLogo": false,
+        "LogoUrl": null,
+        "LogoInitials": "ED",
+        "Identification": "1790000000001"
+      },
+      "metadata": {
+        "GeneratedAt": "24/04/2026 10:00",
+        "ReportName": "Listado de Comprobantes de Diario"
+      },
+      "resources": {
+        "labels.preparedBy": "Elaborado por",
+        "labels.reviewedBy": "Revisado por",
+        "labels.approvedBy": "Autorizado por"
+      },
+      "signatures": {
+        "show": false,
+        "preparedBy": "",
+        "reviewedBy": "",
+        "approvedBy": ""
+      }
+    },
+    "report": {
+      "Title": "Listado de Comprobantes de Diario — 01/01/2026 — 31/01/2026",
+      "TotalDataRows": 4,
+      "ColumnCount": 7,
+      "Columns": [
+        "Código",
+        "Cuenta",
+        "Concepto",
+        "C. Costo",
+        "Sub C.C.",
+        "Débito",
+        "Crédito"
+      ],
+      "Rows": [
+        {
+          "IsGroupHeader": true,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "AS-2026-0001",
+          "Cells": ["AS-2026-0001", "DJ-001", "05/01/2026", "Compra de materiales de oficina", "", "", ""]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": ["1.01.01.001", "Caja General", "Pago en efectivo", "CC-01", "", "$ 150.00", ""]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": ["5.01.02.001", "Gasto Suministros", "Materiales de oficina", "", "", "", "$ 150.00"]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": true,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "Subtotal",
+          "Cells": ["", "", "", "", "", "$ 150.00", "$ 150.00"]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": true,
+          "Label": "",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": true,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "AS-2026-0002",
+          "Cells": ["AS-2026-0002", "DJ-001", "20/01/2026", "Pago de servicios básicos enero", "", "", ""]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": ["1.01.01.001", "Caja General", "Pago servicios", "CC-01", "SCC-01", "$ 280.50", ""]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": true,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "",
+          "Cells": ["5.01.03.001", "Gasto Servicios Básicos", "Luz, agua, teléfono", "CC-01", "", "", "$ 280.50"]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": true,
+          "IsTotal": false,
+          "IsSpacer": false,
+          "Label": "Subtotal",
+          "Cells": ["", "", "", "", "", "$ 280.50", "$ 280.50"]
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": false,
+          "IsSpacer": true,
+          "Label": "",
+          "Cells": []
+        },
+        {
+          "IsGroupHeader": false,
+          "IsSectionHeader": false,
+          "IsHeader": false,
+          "IsData": false,
+          "IsSubtotal": false,
+          "IsTotal": true,
+          "IsSpacer": false,
+          "Label": "Total General",
+          "Cells": ["", "", "", "", "", "$ 430.50", "$ 430.50"]
+        }
+      ]
+    }
+  }
+}

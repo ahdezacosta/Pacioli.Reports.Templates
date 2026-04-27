@@ -1,0 +1,12 @@
+{
+    "name": "journal-vouchers-list",
+    "creationDate": {
+        "$$date": 1745510000000
+    },
+    "modificationDate": {
+        "$$date": 1745510000000
+    },
+    "shortid": "jvl_folder",
+    "_id": "jvlFolderXYZ001",
+    "$entitySet": "folders"
+}

@@ -3,15 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>{{Model.context.resources.[titles.journalEntry]}}</title>
-
     <style>
     {{asset "/core/accounting/journal-entry/v1/styles.css"}}
     </style>
 </head>
-
 <body>
 
-    <!-- Company + Period header -->
+    <!-- Topbar (canonical 3-column) -->
     <div class="topbar">
         <div class="company-block">
             <div class="logo">
@@ -30,123 +28,74 @@
                     {{Model.context.company.Name}}
                     {{/if}}
                 </div>
-
                 {{#if Model.context.company.Identification}}
-                <div class="company-line">
-                    <span class="muted">{{Model.context.resources.[labels.identification]}}:</span>
-                    <span class="mono">{{Model.context.company.Identification}}</span>
-                </div>
-                {{/if}}
-
-                {{#if Model.context.company.Email}}
-                <div class="company-line mono">{{Model.context.company.Email}}</div>
-                {{/if}}
-
-                {{#if Model.context.company.Phone}}
-                <div class="company-line mono">{{Model.context.company.Phone}}</div>
-                {{/if}}
-
-                {{#if Model.context.company.Website}}
-                <div class="company-line mono">{{Model.context.company.Website}}</div>
+                <div class="company-line mono">{{Model.context.company.Identification}}</div>
                 {{/if}}
             </div>
         </div>
 
-        <div class="period-block">
-            <div class="period-title">{{Model.context.resources.[labels.period]}}</div>
-            <div class="period-key mono">{{Model.context.period.PeriodKey}}</div>
-
-            <div class="period-range muted">
-                {{Model.context.resources.[labels.from]}} <span class="mono">{{Model.context.period.StartDate}}</span>
-                •
-                {{Model.context.resources.[labels.to]}} <span class="mono">{{Model.context.period.EndDate}}</span>
-            </div>
+        <div class="report-title-block">
+            <div class="report-meta-name">{{Model.context.resources.[titles.journalEntry]}}</div>
+            <div class="report-meta-title mono">{{Model.model.header.journalEntryNumber}}</div>
+            <div class="report-meta-sub muted">{{Model.context.resources.[labels.period]}}: <span class="mono">{{Model.context.period.PeriodKey}}</span></div>
         </div>
+
+        <div class="topbar-spacer"></div>
     </div>
 
-    <!-- Header (journal entry) -->
-    <div class="header">
-        <div>
-            <h1 class="title">{{Model.context.resources.[titles.journalEntry]}}</h1>
-            <div class="subtitle">
-                <span class="mono">{{Model.model.header.id}}</span>
-            </div>
+    <!-- Info block: Asiento · N° Diario · Fecha + Descripción -->
+    <div class="info-block">
+        <div class="info-cell">
+            <div class="info-label">{{Model.context.resources.[labels.journalEntryNumber]}}</div>
+            <div class="info-value mono bold">{{Model.model.header.journalEntryNumber}}</div>
         </div>
-
-        <div>
-            {{#if Model.model.totals.balanced}}
-            <span class="chip ok">{{Model.context.resources.[labels.balanced]}}</span>
-            {{else}}
-            <span class="chip bad">{{Model.context.resources.[labels.unbalanced]}}</span>
-            {{/if}}
+        <div class="info-cell">
+            <div class="info-label">{{Model.context.resources.[labels.journalNumber]}}</div>
+            <div class="info-value mono">{{#if Model.model.header.journalNumber}}{{Model.model.header.journalNumber}}{{else}}—{{/if}}</div>
         </div>
+        <div class="info-cell">
+            <div class="info-label">{{Model.context.resources.[labels.journalDate]}}</div>
+            <div class="info-value mono">{{Model.model.header.journalDateText}}</div>
+        </div>
+        <div class="info-cell span3">
+            <div class="info-label">{{Model.context.resources.[labels.description]}}</div>
+            <div class="info-value">{{#if Model.model.header.description}}{{Model.model.header.description}}{{else}}—{{/if}}</div>
+        </div>
+        {{#if Model.model.header.voidedAtText}}
+        <div class="info-cell">
+            <div class="info-label">{{Model.context.resources.[labels.voidedAt]}}</div>
+            <div class="info-value mono">{{Model.model.header.voidedAtText}}</div>
+        </div>
+        <div class="info-cell span2">
+            <div class="info-label">{{Model.context.resources.[labels.voidReason]}}</div>
+            <div class="info-value">{{#if Model.model.header.voidReason}}{{Model.model.header.voidReason}}{{else}}—{{/if}}</div>
+        </div>
+        {{/if}}
     </div>
 
-    <!-- Card -->
-    <div class="card">
-        <div class="row">
-            <div class="col">
-                <div class="kv">
-                    <div class="k">{{Model.context.resources.[labels.journalEntryNumber]}}</div>
-                    <div class="v"><strong>{{Model.model.header.journalEntryNumber}}</strong></div>
-
-                    <div class="k">{{Model.context.resources.[labels.journalNumber]}}</div>
-                    <div class="v">{{#if Model.model.header.journalNumber}}{{Model.model.header.journalNumber}}{{else}}—{{/if}}</div>
-
-                    <div class="k">{{Model.context.resources.[labels.journalDate]}}</div>
-                    <div class="v">{{Model.model.header.journalDateText}}</div>
-
-                    <div class="k">{{Model.context.resources.[labels.origin]}}</div>
-                    <div class="v">{{Model.model.header.originText}}</div>
-
-                    <div class="k">{{Model.context.resources.[labels.status]}}</div>
-                    <div class="v">{{Model.model.header.statusText}}</div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="kv">
-                    <div class="k">{{Model.context.resources.[labels.reference]}}</div>
-                    <div class="v">{{#if Model.model.header.reference}}{{Model.model.header.reference}}{{else}}—{{/if}}</div>
-
-                    <div class="k">{{Model.context.resources.[labels.description]}}</div>
-                    <div class="v">{{#if Model.model.header.description}}{{Model.model.header.description}}{{else}}—{{/if}}</div>
-
-                    <div class="k">{{Model.context.resources.[labels.postedAt]}}</div>
-                    <div class="v">{{#if Model.model.header.postedAtText}}{{Model.model.header.postedAtText}}{{else}}—{{/if}}</div>
-
-                    <div class="k">{{Model.context.resources.[labels.voidedAt]}}</div>
-                    <div class="v">{{#if Model.model.header.voidedAtText}}{{Model.model.header.voidedAtText}}{{else}}—{{/if}}</div>
-
-                    <div class="k">{{Model.context.resources.[labels.voidReason]}}</div>
-                    <div class="v">{{#if Model.model.header.voidReason}}{{Model.model.header.voidReason}}{{else}}—{{/if}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Table -->
-    <table>
+    <!-- Lines table -->
+    <table class="rpt-table">
         <thead>
             <tr>
-                <th class="w-id">{{Model.context.resources.[columns.account]}}</th>
-                <th class="w-desc">{{Model.context.resources.[columns.description]}}</th>
-                <th class="w-cc">{{Model.context.resources.[columns.costcenter]}}</th>
-                <th class="w-cc">{{Model.context.resources.[columns.subcostcenter]}}</th>
-                <th class="w-money right">{{Model.context.resources.[columns.debit]}}</th>
-                <th class="w-money right">{{Model.context.resources.[columns.credit]}}</th>
+                <th>{{Model.context.resources.[columns.accountCode]}}</th>
+                <th>{{Model.context.resources.[columns.accountName]}}</th>
+                <th>{{Model.context.resources.[columns.description]}}</th>
+                <th>{{Model.context.resources.[columns.costcenter]}}</th>
+                <th>{{Model.context.resources.[columns.subcostcenter]}}</th>
+                <th>{{Model.context.resources.[columns.debit]}}</th>
+                <th>{{Model.context.resources.[columns.credit]}}</th>
             </tr>
         </thead>
-
         <tbody>
             {{#each Model.model.lines}}
             <tr>
-                <td class="mono">{{#if accountText}}{{accountText}}{{else}}—{{/if}}</td>
+                <td class="mono">{{#if accountCode}}{{accountCode}}{{else}}—{{/if}}</td>
+                <td>{{#if accountName}}{{accountName}}{{else}}—{{/if}}</td>
                 <td>{{#if description}}{{description}}{{else}}—{{/if}}</td>
                 <td class="mono">{{#if costCenterText}}{{costCenterText}}{{else}}—{{/if}}</td>
                 <td class="mono">{{#if subCostCenterText}}{{subCostCenterText}}{{else}}—{{/if}}</td>
-                <td class="right nowrap">{{debitText}}</td>
-                <td class="right nowrap">{{creditText}}</td>
+                <td>{{debitText}}</td>
+                <td>{{creditText}}</td>
             </tr>
             {{/each}}
         </tbody>
@@ -155,25 +104,50 @@
     <!-- Totals -->
     <div class="totals">
         <div class="total-box">
-            <div class="label">{{Model.context.resources.[labels.totalDebit]}}</div>
-            <div class="value right">{{Model.model.totals.debitText}}</div>
+            <div class="t-label">{{Model.context.resources.[labels.totalDebit]}}</div>
+            <div class="t-value">{{Model.model.totals.debitText}}</div>
         </div>
-
         <div class="total-box">
-            <div class="label">{{Model.context.resources.[labels.totalCredit]}}</div>
-            <div class="value right">{{Model.model.totals.creditText}}</div>
+            <div class="t-label">{{Model.context.resources.[labels.totalCredit]}}</div>
+            <div class="t-value">{{Model.model.totals.creditText}}</div>
         </div>
-
         <div class="total-box">
-            <div class="label">{{Model.context.resources.[labels.balance]}}</div>
-            <div class="value right">{{Model.model.totals.diffText}}</div>
+            <div class="t-label">{{Model.context.resources.[labels.balance]}}</div>
+            <div class="t-value">{{Model.model.totals.diffText}}</div>
         </div>
     </div>
 
+    <!-- Signature block -->
+    {{#if Model.context.signatures.show}}
+    <div class="sig-block">
+        <div class="sig-col">
+            <div class="sig-line"></div>
+            {{#if Model.context.signatures.preparedBy}}
+            <div class="sig-name">{{Model.context.signatures.preparedBy}}</div>
+            {{/if}}
+            <div class="sig-label">{{Model.context.resources.[labels.preparedBy]}}</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line"></div>
+            {{#if Model.context.signatures.reviewedBy}}
+            <div class="sig-name">{{Model.context.signatures.reviewedBy}}</div>
+            {{/if}}
+            <div class="sig-label">{{Model.context.resources.[labels.reviewedBy]}}</div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-line"></div>
+            {{#if Model.context.signatures.approvedBy}}
+            <div class="sig-name">{{Model.context.signatures.approvedBy}}</div>
+            {{/if}}
+            <div class="sig-label">{{Model.context.resources.[labels.approvedBy]}}</div>
+        </div>
+    </div>
+    {{/if}}
+
     <!-- Footer -->
-    <div class="footer footer-two-cols">
-        <div>Reporte: <span class="mono">{{ReportKey}} - ver: {{ReportVersion}}</span></div>
-        <div>{{Model.context.resources.[labels.generatedAt]}}: <span class="mono">{{Model.context.metadata.GeneratedAtUtc}}</span></div>
+    <div class="footer">
+        <span><span class="mono">{{ReportKey}}</span><span class="footer-sep">|</span><span class="mono">{{ReportVersion}}</span></span>
+        <span>{{Model.context.resources.[labels.generatedAt]}}: <span class="mono">{{Model.context.metadata.GeneratedAt}}</span></span>
     </div>
 
 </body>

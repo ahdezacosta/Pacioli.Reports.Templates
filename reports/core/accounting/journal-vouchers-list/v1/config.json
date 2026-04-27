@@ -1,0 +1,12 @@
+{
+    "name": "v1",
+    "creationDate": {
+        "$$date": 1745510000001
+    },
+    "modificationDate": {
+        "$$date": 1745510000001
+    },
+    "shortid": "jvl_v1folder",
+    "_id": "jvlV1FolderXYZ002",
+    "$entitySet": "folders"
+}

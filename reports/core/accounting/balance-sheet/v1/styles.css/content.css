@@ -259,6 +259,13 @@ tr    { page-break-inside: avoid; }
     margin-bottom: 4px;
 }
 
+.signature-name {
+    font-size: 7.5px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 1px;
+}
+
 .signature-label {
     font-size: 7.5px;
     color: #333;

@@ -45,7 +45,7 @@
       "statuses.period.closing": "Cerrado",
       "statuses.period.closed": "[Report_Statuses_Period_Closed]",
       "statuses.period.archived": "Archivado",
-      "titles.journalEntry": "Asiento contable",
+      "titles.journalEntry": "Comprobante de Diario",
       "labels.journalDate": "Fecha",
       "labels.origin": "Origen",
       "labels.status": "Estado",
@@ -58,7 +58,8 @@
       "labels.voidReason": "Motivo de anulaci\u00F3n",
       "labels.balanced": "Balanceado",
       "labels.unbalanced": "Desbalanceado",
-      "columns.account": "Cuenta",
+      "columns.accountCode": "Código",
+      "columns.accountName": "Cuenta contable",
       "columns.description": "Descripci\u00F3n",
       "columns.costcenter": "Centro de Costo",
       "columns.subcostcenter": "Subcentro de costo",
@@ -66,7 +67,10 @@
       "columns.credit": "Cr\u00E9dito",
       "labels.totalDebit": "Total d\u00E9bito",
       "labels.totalCredit": "Total cr\u00E9dito",
-      "labels.balance": "Diferencia"
+      "labels.balance": "Diferencia",
+      "labels.preparedBy": "Elaborado por",
+      "labels.reviewedBy": "Revisado por",
+      "labels.approvedBy": "Autorizado por"
     },
     "Metadata": {
       "ReportKey": "core.accounting.journal-entry",
@@ -123,7 +127,7 @@
         "statuses.period.closing": "Cerrado",
         "statuses.period.closed": "[Report_Statuses_Period_Closed]",
         "statuses.period.archived": "Archivado",
-        "titles.journalEntry": "Asiento contable",
+        "titles.journalEntry": "Comprobante de Diario",
         "labels.journalDate": "Fecha",
         "labels.origin": "Origen",
         "labels.status": "Estado",
@@ -136,7 +140,8 @@
         "labels.voidReason": "Motivo de anulaci\u00F3n",
         "labels.balanced": "Balanceado",
         "labels.unbalanced": "Desbalanceado",
-        "columns.account": "Cuenta",
+        "columns.accountCode": "Código",
+      "columns.accountName": "Cuenta contable",
         "columns.description": "Descripci\u00F3n",
         "columns.costcenter": "Centro de Costo",
         "columns.subcostcenter": "Subcentro de costo",
@@ -144,15 +149,25 @@
         "columns.credit": "Cr\u00E9dito",
         "labels.totalDebit": "Total d\u00E9bito",
         "labels.totalCredit": "Total cr\u00E9dito",
-        "labels.balance": "Diferencia"
+        "labels.balance": "Diferencia",
+      "labels.preparedBy": "Elaborado por",
+      "labels.reviewedBy": "Revisado por",
+      "labels.approvedBy": "Autorizado por"
       },
       "metadata": {
         "ReportKey": "core.accounting.journal-entry",
         "ReportVersion": "v2",
         "GeneratedAtUtc": "2026-01-22T03:35:28.9123207Z",
+        "GeneratedAt": "22/1/2026 03:35:28",
         "CompanyId": "ea273d63-424f-4fe3-9de7-5ca5b6daeeec",
         "AccountingPeriodId": "92c26178-8ceb-40d6-91f9-46ae5fff2f1e",
         "UserId": "54ffffe3-451a-445d-9009-4bc1cc3f99a7"
+      },
+      "signatures": {
+        "show": true,
+        "preparedBy": "María García",
+        "reviewedBy": "Juan Pérez",
+        "approvedBy": "Carlos López"
       }
     },
     "model": {
@@ -274,7 +289,7 @@
         "statuses.period.closing": "Cerrado",
         "statuses.period.closed": "[Report_Statuses_Period_Closed]",
         "statuses.period.archived": "Archivado",
-        "titles.journalEntry": "Asiento contable",
+        "titles.journalEntry": "Comprobante de Diario",
         "labels.journalDate": "Fecha",
         "labels.origin": "Origen",
         "labels.status": "Estado",
@@ -287,7 +302,8 @@
         "labels.voidReason": "Motivo de anulaci\u00F3n",
         "labels.balanced": "Balanceado",
         "labels.unbalanced": "Desbalanceado",
-        "columns.account": "Cuenta",
+        "columns.accountCode": "Código",
+      "columns.accountName": "Cuenta contable",
         "columns.description": "Descripci\u00F3n",
         "columns.costcenter": "Centro de Costo",
         "columns.subcostcenter": "Subcentro de costo",
@@ -295,15 +311,25 @@
         "columns.credit": "Cr\u00E9dito",
         "labels.totalDebit": "Total d\u00E9bito",
         "labels.totalCredit": "Total cr\u00E9dito",
-        "labels.balance": "Diferencia"
+        "labels.balance": "Diferencia",
+      "labels.preparedBy": "Elaborado por",
+      "labels.reviewedBy": "Revisado por",
+      "labels.approvedBy": "Autorizado por"
       },
       "metadata": {
         "ReportKey": "core.accounting.journal-entry",
         "ReportVersion": "v2",
         "GeneratedAtUtc": "2026-01-22T03:35:28.9123207Z",
+        "GeneratedAt": "22/1/2026 03:35:28",
         "CompanyId": "ea273d63-424f-4fe3-9de7-5ca5b6daeeec",
         "AccountingPeriodId": "92c26178-8ceb-40d6-91f9-46ae5fff2f1e",
         "UserId": "54ffffe3-451a-445d-9009-4bc1cc3f99a7"
+      },
+      "signatures": {
+        "show": true,
+        "preparedBy": "María García",
+        "reviewedBy": "Juan Pérez",
+        "approvedBy": "Carlos López"
       }
     },
     "model": {
